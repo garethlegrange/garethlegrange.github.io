@@ -1,3 +1,3 @@
 # Gareth le Grange
 
-Senior frontend Engineer
+Senior Frontend Engineer

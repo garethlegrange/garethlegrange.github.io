@@ -1,11 +1,40 @@
 ---
+import { getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+
+const work = await getEntry("work", "web-africa");
+const { Content } = await work.render();
 ---
 
-<Layout title="Senior Frontend Engineer - Gareth le Grange">
-	<main class="min-h-screen text-center content-center p-6">
-		<h1>Gareth le Grange</h1>
-		<p>Senior Frontend Engineer</p>
-	</main>
+<Layout title="Senior Frontend Engineer - Gareth le Grange" description="Test">
+	<h1>Gareth le Grange</h1>
+	<p>Senior Frontend Engineer</p>
+
+	<!-- Work -->
+	<section>
+		<header class="flex justify-between">
+			<h2>Work Experience</h2>
+			<a href="/work">See all work</a>
+		</header>
+		<ul>
+			<li class="flex flex-col items-start gap-2">
+				<div class="flex w-full flex-col gap-1">
+					<div class="flex items-center">
+						<h3 class="flex items-center gap-2 font-semibold">{work.data.company}</h3>
+						<time class="ml-auto text-xs text-foreground">{work.data.startDate.toLocaleDateString('en-GB')} &ndash; {work.data.endDate.toLocaleDateString('en-GB')}</time>
+					</div>
+					<div class="text-xs font-medium">{work.data.title}</div>
+				</div>
+				<article class="line-clamp-2 text-xs">
+					<Content />
+				</article>
+			</li>
+		</ul>
+	</section>
+
+	<!-- Projects -->
+	<h2>Recent projects</h2>
+
+	<!-- Snippets -->
+	<h2>Snippets</h2>
 </Layout>

@@ -26,27 +26,12 @@ const projects = (await getCollection("projects")).slice(0, 3);
 		</section>
 
 		<!-- Work -->
-		<section>
+		<!-- <section>
 			<header class="flex justify-between mb-2">
 				<h2 class="text-sm font-bold uppercase">Work</h2>
 				<a href="/work" class="text-xs text-slate-700 underline hover:no-underline">See all work</a>
 			</header>
 			<ul>
-				<!-- <Card>
-					<div class="flex w-full flex-col gap-1">
-						<div class="flex items-center">
-							<h3 class="flex items-center gap-2 text-sm font-semibold">{work.data.company}</h3>
-							<time class="ml-auto text-xs font-light uppercase">
-								{work.data.startDate.toLocaleDateString('en-GB')} &ndash; 
-								{work.data.isCurrent ? <span class="font-semibold">Present</span> : work.data.endDate.toLocaleDateString('en-GB')}
-							</time>
-						</div>
-						<p class="text-xs font-light">{work.data.title}</p>
-					</div>
-					<article>
-						<Content />
-					</article>
-				</Card> -->
 				<li>
 					<div class="flex w-full flex-col gap-1">
 						<div class="flex items-center">
@@ -63,10 +48,10 @@ const projects = (await getCollection("projects")).slice(0, 3);
 					</article>
 				</li>
 			</ul>
-		</section>
+		</section> -->
 
 		<!-- Projects -->
-		 <section>
+		 <!-- <section>
 			<header class="flex justify-between mb-2">
 				<h2 class="text-sm font-bold uppercase">Projects</h2>
 				<a href="/work" class="text-xs text-slate-700 underline hover:no-underline">See all projetcs</a>
@@ -76,15 +61,15 @@ const projects = (await getCollection("projects")).slice(0, 3);
 				<li>{project.data.name}</li>
 			))}
 			</ul>
-		</section>
+		</section> -->
 
 		<!-- Snippets -->
-		<section>
+		<!-- <section>
 			<header class="flex justify-between mb-2">
 				<h2 class="text-sm font-bold uppercase">Snippets</h2>
 				<a href="/work" class="text-xs text-slate-700 underline hover:no-underline">See all snippets</a>
 			</header>
-		</section>
+		</section> -->
 
 	</div>
 </Layout>

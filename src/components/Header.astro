@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+
+const workTotal = (await getCollection("work")).length;
+const projectsTotal = (await getCollection("projects")).length;
+---
+
+<header class="fixed top-4 left-0 right-0">
+    <div class="container mx-auto px-6 flex flex-col lg:flex-row gap-3 items-center uppercase">
+        <a href="/" class="flex flex-col text-pretty mr-auto">
+            <span class="font-semibold text-sm">Gareth le Grange</span>
+            <span class="font-light text-xs tracking-[0.012em]">Frontend developer</span>
+        </a>
+
+        <nav class="flex items-center gap-3">
+            <a href="/about" class="text-sm font-semibold">About</a>
+            <a href="/" class="text-sm font-semibold">Work<sup>({workTotal})</sup></a>
+            <a href="/" class="text-sm font-semibold">Projects<sup>({projectsTotal})</sup></a>
+            <a href="/" class="text-sm font-semibold">Snippets<sup>(12)</sup></a>
+        </nav>
+
+        <a href="mailto:garethlegrange+work@gmail.com" class="text-sm font-semibold border border-slate-900 rounded-full px-2 py-1.5 ml-4 leading-4 flex items-center fixed lg:relative right-6 lg:right-0">
+            <span>Contact me</span>
+        </a>
+    </div>
+</header>

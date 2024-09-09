@@ -1,40 +1,90 @@
 ---
-import { getEntry } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import Hero from "../components/Hero.astro"
+import Card from "../components/Card.astro"
 
 const work = await getEntry("work", "web-africa");
 const { Content } = await work.render();
+
+const projects = (await getCollection("projects")).slice(0, 3);
 ---
 
 <Layout title="Senior Frontend Engineer - Gareth le Grange" description="Test">
-	<h1>Gareth le Grange</h1>
-	<p>Senior Frontend Engineer</p>
+	<Hero />
 
-	<!-- Work -->
-	<section>
-		<header class="flex justify-between">
-			<h2>Work Experience</h2>
-			<a href="/work">See all work</a>
-		</header>
-		<ul>
-			<li class="flex flex-col items-start gap-2">
-				<div class="flex w-full flex-col gap-1">
-					<div class="flex items-center">
-						<h3 class="flex items-center gap-2 font-semibold">{work.data.company}</h3>
-						<time class="ml-auto text-xs text-foreground">{work.data.startDate.toLocaleDateString('en-GB')} &ndash; {work.data.endDate.toLocaleDateString('en-GB')}</time>
+	<div class="container mx-auto max-w-lg px-6 mt-24 flex flex-col gap-6">
+		<!-- About -->
+		<section class="flex flex-col gap-2">
+			<header class="flex justify-between">
+				<h2 class="text-sm font-bold uppercase">About</h2>
+				<a href="/about" class="text-xs text-slate-700 underline hover:no-underline">Read more</a>
+			</header>
+			<article class="text-sm font-light">
+				<p>With over a decade of experience, I specialize in transforming complex ideas into sleek, high-performing websites and applications. Currently, I'm a Senior Frontend Developer at Web Africa, where I lead the development of innovative, user-friendly features, working remotely from the beautiful Muizenberg, South Africa.</p>
+			</article>
+		</section>
+
+		<!-- Work -->
+		<section>
+			<header class="flex justify-between mb-2">
+				<h2 class="text-sm font-bold uppercase">Work</h2>
+				<a href="/work" class="text-xs text-slate-700 underline hover:no-underline">See all work</a>
+			</header>
+			<ul>
+				<!-- <Card>
+					<div class="flex w-full flex-col gap-1">
+						<div class="flex items-center">
+							<h3 class="flex items-center gap-2 text-sm font-semibold">{work.data.company}</h3>
+							<time class="ml-auto text-xs font-light uppercase">
+								{work.data.startDate.toLocaleDateString('en-GB')} &ndash; 
+								{work.data.isCurrent ? <span class="font-semibold">Present</span> : work.data.endDate.toLocaleDateString('en-GB')}
+							</time>
+						</div>
+						<p class="text-xs font-light">{work.data.title}</p>
 					</div>
-					<div class="text-xs font-medium">{work.data.title}</div>
-				</div>
-				<article class="line-clamp-2 text-xs">
-					<Content />
-				</article>
-			</li>
-		</ul>
-	</section>
+					<article>
+						<Content />
+					</article>
+				</Card> -->
+				<li>
+					<div class="flex w-full flex-col gap-1">
+						<div class="flex items-center">
+							<h3 class="flex items-center gap-2 text-sm font-semibold">{work.data.company}</h3>
+							<time class="ml-auto text-xs font-light uppercase">
+								{work.data.startDate.toLocaleDateString('en-GB')} &ndash; 
+								{work.data.isCurrent ? <span class="font-semibold">Present</span> : work.data.endDate.toLocaleDateString('en-GB')}
+							</time>
+						</div>
+						<p class="text-xs font-light">{work.data.title}</p>
+					</div>
+					<article class="line-clamp-2">
+						<Content />
+					</article>
+				</li>
+			</ul>
+		</section>
 
-	<!-- Projects -->
-	<h2>Recent projects</h2>
+		<!-- Projects -->
+		 <section>
+			<header class="flex justify-between mb-2">
+				<h2 class="text-sm font-bold uppercase">Projects</h2>
+				<a href="/work" class="text-xs text-slate-700 underline hover:no-underline">See all projetcs</a>
+			</header>
+			<ul>
+			{projects.map((project:any) => (
+				<li>{project.data.name}</li>
+			))}
+			</ul>
+		</section>
 
-	<!-- Snippets -->
-	<h2>Snippets</h2>
+		<!-- Snippets -->
+		<section>
+			<header class="flex justify-between mb-2">
+				<h2 class="text-sm font-bold uppercase">Snippets</h2>
+				<a href="/work" class="text-xs text-slate-700 underline hover:no-underline">See all snippets</a>
+			</header>
+		</section>
+
+	</div>
 </Layout>

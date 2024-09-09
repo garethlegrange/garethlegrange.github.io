@@ -1,6 +1,15 @@
 ---
+const year = new Date().getFullYear();
 ---
 
 <footer>
-    <div class="container max-w-screen-sm mx-auto">footer</div>
+    <div class="container mx-auto px-6 flex flex-col lg:flex-row gap-3 items-center uppercase text-sm font-light justify-between pb-4">
+        <nav class="flex items-center gap-3">
+            <a href="/">Home</a>
+            <a href="/">Work</a>
+            <a href="/">Projects</a>
+            <a href="/">Snippets</a>
+        </nav>
+        <p>&copy; {year} Gareth le Grange</p>
+    </div>
 </footer>

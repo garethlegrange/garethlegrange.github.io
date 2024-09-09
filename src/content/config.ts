@@ -33,13 +33,14 @@ const work = defineCollection({
     title: z.string(),
     startDate: z.date(),
     endDate: z.date(),
+    isCurrent: z.boolean().default(false).optional(),
   }),
 });
 
 const projects = defineCollection({
   type: "data",
   schema: z.object({
-    /* ... */
+    name: z.string(),
   }),
 });
 

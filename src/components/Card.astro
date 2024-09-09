@@ -8,7 +8,7 @@ interface Props {
 const { href, title, body } = Astro.props;
 ---
 
-<li>
+<div>
 	<a href={href}>
 		<h2>
 			{title}
@@ -18,4 +18,25 @@ const { href, title, body } = Astro.props;
 			{body}
 		</p>
 	</a>
-</li>
+</div>
+
+<button
+  class="flex flex-col items-start gap-2 rounded-lg border p-3 text-left text-sm transition-all hover:bg-accent"
+>
+  <div class="flex w-full flex-col gap-1">
+    <div class="flex items-center">
+      <div class="flex items-center gap-2">
+        <div class="font-semibold">Alice Smith</div>
+      </div>
+      <div class="ml-auto text-xs text-muted-foreground">11 months ago</div>
+    </div>
+    <div class="text-xs font-medium">Re: Project Update</div>
+  </div>
+  <div class="line-clamp-2 text-xs text-muted-foreground">
+    Thank you for the project update. It looks great! I've gone through the
+    report, and the progress is impressive. The team has done a fantastic job,
+    and I appreciate the hard work everyone has put in. I have a few minor
+    suggestions that I'll include in the attached document. Let's discuss these
+    duri
+  </div>
+</button>

@@ -1,7 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
-import "@fontsource-variable/inter";
-import '@fontsource-variable/noto-serif';
+import '@fontsource-variable/fira-code';
 import Header from "../components/Header.astro";
 import CTA from "../components/CallToAction.astro";
 import Footer from "../components/Footer.astro";
@@ -28,12 +27,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<link rel="canonical" href={canonicalURL} />
 		<ViewTransitions  />
 	</head>
-	<body class="bg-amber-50 text-slate-900 flex flex-col min-h-screen">
+	<body class="container mx-auto max-w-xl min-h-screen font-mono flex flex-col space-y-4 bg-amber-50">
 		<Header />
-		<main class="grow">
-			<slot />
+		<main class="grow flex flex-col space-y-3 [&_p]:text-sm">
+			<h1 class="font-semibold text-lg text-pretty">Hello, I'm Gareth &ndash; A Senior Frontend Developer passionate about crafting user-centric websites and applications.</h1>
+			<p>With over a decade of experience, I specialize in transforming complex ideas into sleek, high-performing websites and applications. Currently, I'm a Senior Frontend Developer at Webafrica, where I lead the development of innovative, user-friendly features, working remotely from the beautiful Muizenberg, South Africa.</p>
+			<p>I bring ideas to life using a suite of modern tools and technologies, including React, JavaScript, and CSS, to craft responsive and engaging user interfaces. My toolkit also includes TypeScript for type safety, Redux or Zustand for efficient state management, and Tailwind CSS for rapid, utility-first styling.</p>
+			<p>By integrating these tools with agile methodologies and staying current with industry trends, I create clean, maintainable code and collaborate effectively with cross-functional teams. This approach ensures that my solutions are not only functional and high-quality but also deliver exceptional user experiences.</p>
+			<p>I'm currently available for part-time freelance work. Feel free to reach out if you have a project in mind or want to discuss potential collaborations at <a href="mailto:garethlegrange+work@gmail.com" class="underline font-medium hover:no-underline">garethlegrange+work@gmail.com</a></p>
 		</main>
-		<CTA />
 		<Footer />
 	</body>
 </html>

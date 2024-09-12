@@ -10,8 +10,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter Variable", ...defaultTheme.fontFamily.sans],
-        serif: ["Noto Serif Variable", ...defaultTheme.fontFamily.serif],
+        mono: ["Fira Code Variable", ...defaultTheme.fontFamily.mono],
       },
     },
   },

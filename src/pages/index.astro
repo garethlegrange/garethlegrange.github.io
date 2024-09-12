@@ -11,11 +11,51 @@ const projects = (await getCollection("projects")).slice(0, 3);
 ---
 
 <Layout title="Senior Frontend Engineer - Gareth le Grange" description="Test">
-	<Hero />
 
-	<div class="container mx-auto max-w-lg px-6 mt-24 flex flex-col gap-6">
+	<h2 class="font-semibold text-lg text-pretty">Hello, I'm Gareth &ndash; A Senior Frontend Developer passionate about crafting user-centric websites and applications.</h2>
+
+	<p>With over a decade of experience, I specialize in transforming complex ideas into sleek, high-performing websites and applications. Currently, I'm a Senior Frontend Developer at Webafrica, where I lead the development of innovative, user-friendly features, working remotely from the beautiful Muizenberg, South Africa.</p>
+
+	<!-- <p>I bring ideas to life using a suite of modern tools and technologies, including React, JavaScript, and CSS, to craft responsive and engaging user interfaces. My toolkit also includes TypeScript for type safety, Redux or Zustand for efficient state management, and Tailwind CSS for rapid, utility-first styling.</p> -->
+
+	<!-- <p>By integrating these tools with agile methodologies and staying current with industry trends, I create clean, maintainable code and collaborate effectively with cross-functional teams. This approach ensures that my solutions are not only functional and high-quality but also deliver exceptional user experiences.</p> -->
+
+	<p>I'm currently available for part-time freelance work. Feel free to reach out if you have a project in mind or want to discuss potential collaborations.</p>
+
+	<div>Email me at <a href="mailto:garethlegrange+work@gmail.com" class="underline font-medium hover:no-underline">garethlegrange+work@gmail.com</a></div>
+
+	<hr />
+
+	<section>
+		<h3 class="font-semibold mb-4">Work</h3>
+		<article class="text-sm">
+			<h4 class="flex items-center justify-between">
+				<span class="font-semibold">{work.data.company}</span>
+				<time>
+					{work.data.startDate.toLocaleDateString('en-GB')} &ndash; 
+					{work.data.isCurrent ? <span class="font-semibold">Present</span> : work.data.endDate.toLocaleDateString('en-GB')}
+				</time>
+			</h4>
+			<p class="mb-2">{work.data.title}</p>
+			<div class="line-clamp-2"><Content /></div>
+		</article>
+	</section>
+
+	<!-- <section class="text-sm">
+		<header class="flex justify-between mb-4">
+			<h3 class="font-semibold">Projects</h3>
+			<a href="/work" class="text-xs underline hover:no-underline">See all projects</a>
+		</header>
+		<ul>
+			{projects.map((project:any) => (
+				<li>{project.data.name}</li>
+			))}
+		</ul>
+	</section> -->
+
+	<!-- <div class="container mx-auto max-w-lg px-6 mt-24 flex flex-col gap-6"> -->
 		<!-- About -->
-		<section class="flex flex-col gap-2">
+		<!-- <section class="flex flex-col gap-2">
 			<header class="flex justify-between">
 				<h2 class="text-sm font-bold uppercase">About</h2>
 				<a href="/about" class="text-xs text-slate-700 underline hover:no-underline">Read more</a>
@@ -23,7 +63,7 @@ const projects = (await getCollection("projects")).slice(0, 3);
 			<article class="text-sm font-light">
 				<p>With over a decade of experience, I specialize in transforming complex ideas into sleek, high-performing websites and applications. Currently, I'm a Senior Frontend Developer at Web Africa, where I lead the development of innovative, user-friendly features, working remotely from the beautiful Muizenberg, South Africa.</p>
 			</article>
-		</section>
+		</section> -->
 
 		<!-- Work -->
 		<!-- <section>
@@ -71,5 +111,5 @@ const projects = (await getCollection("projects")).slice(0, 3);
 			</header>
 		</section> -->
 
-	</div>
+	<!-- </div> -->
 </Layout>

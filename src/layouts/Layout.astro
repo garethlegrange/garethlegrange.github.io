@@ -27,11 +27,51 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<link rel="canonical" href={canonicalURL} />
 		<ViewTransitions  />
 	</head>
-	<body class="container mx-auto max-w-xl min-h-screen px-4 font-mono flex flex-col space-y-4 bg-amber-50">
-		<Header />
-		<main class="grow flex flex-col space-y-3 [&_p]:text-sm">
-			<slot />
-		</main>
-		<Footer />
+	<body class="text-slate-900">
+		<div class="container mx-auto min-h-screen flex flex-col">
+			<Header />
+			<main>
+				<slot />
+			</main>
+			<Footer />
+		</div>
 	</body>
 </html>
+
+<style is:global>
+	/* TODO: Add in link to font */
+	@font-face {
+		font-family: 'Mona Sans';
+		font-style: normal;
+		font-weight: 100 900;
+		font-display: swap;
+		src: url("/fonts/Mona-Sans-2/Mona-Sans.woff2") format("woff2");
+	}
+
+	/* TODO: Add in link to font */
+	@font-face {
+		font-family: 'Hubot Sans';
+		font-style: normal;
+		font-weight: 100 900;
+		font-display: swap;
+		src: url("/fonts/Hubot-Sans-2/Hubot-Sans.woff2") format("woff2");
+	}
+
+	/* https://rsms.me/inter/ */
+	@font-face {
+		font-family: 'Inter Variable';
+		font-style: normal;
+		font-weight: 100 900;
+		font-display: swap;
+		src: url("/fonts/inter-4.0/InterVariable.woff2") format("woff2");
+	}
+
+	/* https://servermono.com/ */
+	@font-face {
+		font-family: 'Server Mono';
+		src: url('/fonts/server-mono/ServerMono-Regular.woff2') format('woff2'), url('/fonts/server-mono/ServerMono-Regular.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+</style>

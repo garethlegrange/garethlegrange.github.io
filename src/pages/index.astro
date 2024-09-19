@@ -11,105 +11,95 @@ const projects = (await getCollection("projects")).slice(0, 3);
 ---
 
 <Layout title="Senior Frontend Engineer - Gareth le Grange" description="Test">
+  <section class="min-h-screen flex flex-col justify-center space-y-6">
+    <div class="w-fit rounded-full">
+      <a
+        href="mailto:garethlegrange+work@gmail.com"
+        rel="nofollow"
+        class="flex origin-top-left items-center rounded-full border border-slate-900 bg-white p-0.5 text-sm transition-transform"
+      >
+	  <span class="relative flex h-2.5 w-2.5 ml-2">
+		<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+		<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+	  </span>
+        <span class="ml-1.5 mr-1 inline-block"
+          >I'm currently <strong>available</strong> for freelance work.</span
+        ><svg
+          stroke="currentColor"
+          fill="none"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="mr-2 inline-block"
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline></svg
+      ></a>
+    </div>
 
-	<h2 class="font-semibold text-lg text-pretty">Hello, I'm Gareth &ndash; A Senior Frontend Developer passionate about crafting user-centric websites and applications.</h2>
+    <h1 class="text-7xl font-bold leading-none text-balance">
+      <span>👋🏼</span> Hello, I'm Gareth &ndash; A Senior Frontend Developer
+      passionate about crafting user-centric websites and applications.
+    </h1>
+    <p class="text-lg text-balance">
+      With over a <strong>decade of experience</strong>, I specialize in
+      transforming complex ideas into sleek, high-performing websites and
+      applications. Currently, I'm a
+      <strong>senior frontend developer at Web Africa</strong>, where I lead the
+      development of innovative, user-friendly features, working remotely from
+      the beautiful <strong>Muizenberg</strong>, <strong>South Africa</strong>.
+    </p>
 
-	<p>With over a decade of experience, I specialize in transforming complex ideas into sleek, high-performing websites and applications. Currently, I'm a Senior Frontend Developer at Webafrica, where I lead the development of innovative, user-friendly features, working remotely from the beautiful Muizenberg, South Africa.</p>
+    <div class="flex space-x-3">
+		<a
+		href="/"
+        class="group inline-flex h-10 items-center gap-2 rounded-full bg-neutral-200 pl-3 pr-4 transition-all duration-300 ease-in-out hover:bg-slate-900 hover:pl-2 hover:text-white active:bg-neutral-700 text-xl"
+      >
+        <span
+          class="rounded-full bg-black p-1 text-sm transition-colors duration-300 group-hover:bg-white"
+          ><svg
+            stroke="currentColor"
+            fill="none"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-black group-active:-rotate-45"
+            height="1em"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline></svg></span
+        ><span>Book a meeting</span>
+      </a>
 
-	<!-- <p>I bring ideas to life using a suite of modern tools and technologies, including React, JavaScript, and CSS, to craft responsive and engaging user interfaces. My toolkit also includes TypeScript for type safety, Redux or Zustand for efficient state management, and Tailwind CSS for rapid, utility-first styling.</p> -->
-
-	<!-- <p>By integrating these tools with agile methodologies and staying current with industry trends, I create clean, maintainable code and collaborate effectively with cross-functional teams. This approach ensures that my solutions are not only functional and high-quality but also deliver exceptional user experiences.</p> -->
-
-	<p>I'm currently available for part-time freelance work. Feel free to reach out if you have a project in mind or want to discuss potential collaborations.</p>
-
-	<div>Email me at <a href="mailto:garethlegrange+work@gmail.com" class="underline font-medium hover:no-underline">garethlegrange+work@gmail.com</a></div>
-
-	<hr />
-
-	<section>
-		<h3 class="font-semibold mb-4">Work</h3>
-		<article class="text-sm">
-			<h4 class="flex items-center justify-between">
-				<span class="font-semibold">{work.data.company}</span>
-				<time>
-					{work.data.startDate.toLocaleDateString('en-GB')} &ndash; 
-					{work.data.isCurrent ? <span class="font-semibold">Present</span> : work.data.endDate.toLocaleDateString('en-GB')}
-				</time>
-			</h4>
-			<p class="mb-2">{work.data.title}</p>
-			<div class="line-clamp-2"><Content /></div>
-		</article>
-	</section>
-
-	<!-- <section class="text-sm">
-		<header class="flex justify-between mb-4">
-			<h3 class="font-semibold">Projects</h3>
-			<a href="/work" class="text-xs underline hover:no-underline">See all projects</a>
-		</header>
-		<ul>
-			{projects.map((project:any) => (
-				<li>{project.data.name}</li>
-			))}
-		</ul>
-	</section> -->
-
-	<!-- <div class="container mx-auto max-w-lg px-6 mt-24 flex flex-col gap-6"> -->
-		<!-- About -->
-		<!-- <section class="flex flex-col gap-2">
-			<header class="flex justify-between">
-				<h2 class="text-sm font-bold uppercase">About</h2>
-				<a href="/about" class="text-xs text-slate-700 underline hover:no-underline">Read more</a>
-			</header>
-			<article class="text-sm font-light">
-				<p>With over a decade of experience, I specialize in transforming complex ideas into sleek, high-performing websites and applications. Currently, I'm a Senior Frontend Developer at Web Africa, where I lead the development of innovative, user-friendly features, working remotely from the beautiful Muizenberg, South Africa.</p>
-			</article>
-		</section> -->
-
-		<!-- Work -->
-		<!-- <section>
-			<header class="flex justify-between mb-2">
-				<h2 class="text-sm font-bold uppercase">Work</h2>
-				<a href="/work" class="text-xs text-slate-700 underline hover:no-underline">See all work</a>
-			</header>
-			<ul>
-				<li>
-					<div class="flex w-full flex-col gap-1">
-						<div class="flex items-center">
-							<h3 class="flex items-center gap-2 text-sm font-semibold">{work.data.company}</h3>
-							<time class="ml-auto text-xs font-light uppercase">
-								{work.data.startDate.toLocaleDateString('en-GB')} &ndash; 
-								{work.data.isCurrent ? <span class="font-semibold">Present</span> : work.data.endDate.toLocaleDateString('en-GB')}
-							</time>
-						</div>
-						<p class="text-xs font-light">{work.data.title}</p>
-					</div>
-					<article class="line-clamp-2">
-						<Content />
-					</article>
-				</li>
-			</ul>
-		</section> -->
-
-		<!-- Projects -->
-		 <!-- <section>
-			<header class="flex justify-between mb-2">
-				<h2 class="text-sm font-bold uppercase">Projects</h2>
-				<a href="/work" class="text-xs text-slate-700 underline hover:no-underline">See all projetcs</a>
-			</header>
-			<ul>
-			{projects.map((project:any) => (
-				<li>{project.data.name}</li>
-			))}
-			</ul>
-		</section> -->
-
-		<!-- Snippets -->
-		<!-- <section>
-			<header class="flex justify-between mb-2">
-				<h2 class="text-sm font-bold uppercase">Snippets</h2>
-				<a href="/work" class="text-xs text-slate-700 underline hover:no-underline">See all snippets</a>
-			</header>
-		</section> -->
-
-	<!-- </div> -->
+	  <a
+		href="/"
+        class="group inline-flex h-10 items-center gap-2 rounded-full bg-neutral-200 pl-3 pr-4 transition-all duration-300 ease-in-out hover:bg-slate-900 hover:pl-2 hover:text-white active:bg-neutral-700 text-xl"
+      >
+        <span
+          class="rounded-full bg-black p-1 text-sm transition-colors duration-300 group-hover:bg-white"
+          ><svg
+            stroke="currentColor"
+            fill="none"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-black group-active:-rotate-45"
+            height="1em"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline></svg></span
+        ><span>Contact me</span>
+      </a>
+    </div>
+  </section>
 </Layout>

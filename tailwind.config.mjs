@@ -10,7 +10,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        mono: ["Fira Code Variable", ...defaultTheme.fontFamily.mono],
+        sans: ["Inter Variable", ...defaultTheme.fontFamily.sans],
+        display: ["Hubot Sans", ...defaultTheme.fontFamily.sans],
+        mono: ["Server Mono", ...defaultTheme.fontFamily.mono],
       },
     },
   },

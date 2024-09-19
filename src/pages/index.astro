@@ -12,40 +12,24 @@ const projects = (await getCollection("projects")).slice(0, 3);
 
 <Layout title="Senior Frontend Engineer - Gareth le Grange" description="Test">
   <section class="min-h-screen flex flex-col justify-center space-y-6">
-    <div class="w-fit rounded-full">
-      <a
-        href="mailto:garethlegrange+work@gmail.com"
-        rel="nofollow"
-        class="flex origin-top-left items-center rounded-full border border-slate-900 bg-white p-0.5 text-sm transition-transform"
-      >
-	  <span class="relative flex h-2.5 w-2.5 ml-2">
-		<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-		<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
-	  </span>
-        <span class="ml-1.5 mr-1 inline-block"
-          >I'm currently <strong>available</strong> for freelance work.</span
-        ><svg
-          stroke="currentColor"
-          fill="none"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="mr-2 inline-block"
-          height="1em"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <line x1="7" y1="17" x2="17" y2="7"></line>
-          <polyline points="7 7 17 7 17 17"></polyline></svg
-      ></a>
-    </div>
+    <p class="w-fit">
+		<!-- class="flex origin-top-left items-center rounded-full border border-slate-900 bg-white p-0.5 text-xs transition-transform" -->
+		<a href="mailto:garethlegrange+work@gmail.com" rel="nofollow" class="flex items-center space-x-2 whitespace-nowrap text-sm border rounded-full py-1 px-2.5">
+			<span class="relative flex h-2.5 w-2.5">
+				<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+				<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+			</span>
+			<span>I'm currently <strong>available</strong> for freelance work.</span>
+			<svg class="size-3 fill-slate-900" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 256 256"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path></svg>
+		</a>
+    </p>
 
-    <h1 class="text-7xl font-bold leading-none text-balance">
+    <h1 class="text-[clamp(24px,4vw,72px)] leading-tight font-black text-balance">
       <span>👋🏼</span> Hello, I'm Gareth &ndash; A Senior Frontend Developer
       passionate about crafting user-centric websites and applications.
     </h1>
-    <p class="text-lg text-balance">
+	
+    <p class="text-[clamp(16px,2vw,18px)] text-balance">
       With over a <strong>decade of experience</strong>, I specialize in
       transforming complex ideas into sleek, high-performing websites and
       applications. Currently, I'm a
@@ -54,52 +38,10 @@ const projects = (await getCollection("projects")).slice(0, 3);
       the beautiful <strong>Muizenberg</strong>, <strong>South Africa</strong>.
     </p>
 
-    <div class="flex space-x-3">
-		<a
-		href="/"
-        class="group inline-flex h-10 items-center gap-2 rounded-full bg-neutral-200 pl-3 pr-4 transition-all duration-300 ease-in-out hover:bg-slate-900 hover:pl-2 hover:text-white active:bg-neutral-700 text-xl"
-      >
-        <span
-          class="rounded-full bg-black p-1 text-sm transition-colors duration-300 group-hover:bg-white"
-          ><svg
-            stroke="currentColor"
-            fill="none"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-black group-active:-rotate-45"
-            height="1em"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline></svg></span
-        ><span>Book a meeting</span>
-      </a>
-
-	  <a
-		href="/"
-        class="group inline-flex h-10 items-center gap-2 rounded-full bg-neutral-200 pl-3 pr-4 transition-all duration-300 ease-in-out hover:bg-slate-900 hover:pl-2 hover:text-white active:bg-neutral-700 text-xl"
-      >
-        <span
-          class="rounded-full bg-black p-1 text-sm transition-colors duration-300 group-hover:bg-white"
-          ><svg
-            stroke="currentColor"
-            fill="none"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-black group-active:-rotate-45"
-            height="1em"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline></svg></span
-        ><span>Contact me</span>
-      </a>
+    <div class="flex gap-3">
+		<a href="https://refer.cal.com/garethlegrange" class="group flex h-10 items-center gap-2 rounded-full text-white bg-slate-900 border border-slate-900 pl-3 pr-4 transition-all duration-300 ease-in-out hover:bg-neutral-100 hover:pl-2 hover:text-slate-900 active:bg-neutral-700"><span class="rounded-full bg-black p-1 text-sm transition-colors duration-300 group-hover:bg-green-500"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-black group-active:-rotate-45" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><span>Book a meeting</span></a>
+		
+		<a href="mailto:garethlegrange+work@gmail.com" class="group flex h-10 items-center gap-2 rounded-full bg-transparent border pl-3 pr-4 transition-all duration-300 ease-in-out hover:bg-black hover:pl-2 hover:text-white active:bg-neutral-700"><span class="rounded-full bg-slate-900 p-1 text-sm transition-colors duration-300 group-hover:bg-white"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-black group-active:-rotate-45" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><span>Contact me</span></a>
     </div>
   </section>
 </Layout>

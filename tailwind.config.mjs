@@ -8,9 +8,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter Variable", ...defaultTheme.fontFamily.sans],
-        display: ["Hubot Sans", ...defaultTheme.fontFamily.sans],
-        mono: ["Server Mono", ...defaultTheme.fontFamily.mono],
+        sans: ["Mona Sans", ...defaultTheme.fontFamily.sans],
+        mono: ["Monaspace Argon", ...defaultTheme.fontFamily.mono],
       },
     },
   },

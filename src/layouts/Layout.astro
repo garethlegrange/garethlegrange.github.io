@@ -2,6 +2,7 @@
 import { ViewTransitions } from "astro:transitions";
 import '@fontsource-variable/fira-code';
 import Header from "../components/Header.astro";
+import Notification from "../components/Notification.astro"
 import CTA from "../components/CallToAction.astro";
 import Footer from "../components/Footer.astro";
 import PostHog from "../components/PostHog.astro";
@@ -26,36 +27,36 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<meta name="title" content={title} />
 		<meta name="description" content={description} />
 		<link rel="canonical" href={canonicalURL} />
+		<link rel="preload" href="MonaSansVF-Regular" as="font" type="font/woff2" crossorigin>
 		<ViewTransitions  />
 		<PostHog />
 	</head>
-	<body class="text-slate-900">
-		<div class="container max-w-7xl mx-auto px-5 min-h-screen flex flex-col">
-			<Header />
-			<main class="relative">
-				<slot />
-			</main>
-			<Footer />
-		</div>
+	<body class="container mx-auto max-w-3xl flex flex-col gap-6 px-5 min-h-screen">
+		<Header />
+		<!-- <Notification /> -->
+		<main class="mb-auto">
+			<slot />
+		</main>
+		<Footer />
 	</body>
 </html>
 
 <style is:global>
-	/* https://rsms.me/inter/ */
+	/* https://github.com/github/mona-sans */
 	@font-face {
-		font-family: 'Inter Variable';
-		font-style: normal;
-		font-weight: 100 900;
-		font-display: swap;
-		src: url("/fonts/inter-4.0/InterVariable.woff2") format("woff2");
+		font-family: "Mona Sans";
+		src:	url("/fonts/mona-sans/MonaSansVF-Regular.woff2") format("woff2 supports variations"), 
+				url("/fonts/mona-sans/MonaSansVF-Regular.woff2") format("woff2-variations");
+		font-weight: 200 900;
+		font-stretch: 75% 125%;
 	}
 
-	/* https://servermono.com/ */
+	/* https://github.com/githubnext/monaspace */
 	@font-face {
-		font-family: 'Server Mono';
-		src: url('/fonts/server-mono/ServerMono-Regular.woff2') format('woff2'), url('/fonts/server-mono/ServerMono-Regular.woff') format('woff');
-		font-weight: normal;
-		font-style: normal;
-		font-display: swap;
+		font-family: "Monaspace Argon";
+		src:	url("/font/monaspace/MonaspaceArgonVarVF[wght,wdth,slnt].woff2") format("woff2 supports variations"), 
+				url("/font/monaspace/MonaspaceArgonVarVF[wght,wdth,slnt].woff2") format("woff2-variations");
+		font-weight: 200 900;
+		font-stretch: 75% 125%;
 	}
 </style>

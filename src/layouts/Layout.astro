@@ -1,9 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
-import '@fontsource-variable/fira-code';
 import Header from "../components/Header.astro";
-import Notification from "../components/Notification.astro"
-import CTA from "../components/CallToAction.astro";
 import Footer from "../components/Footer.astro";
 import PostHog from "../components/PostHog.astro";
 
@@ -33,7 +30,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 	</head>
 	<body class="container mx-auto max-w-3xl flex flex-col gap-6 px-5 min-h-screen">
 		<Header />
-		<!-- <Notification /> -->
 		<main class="mb-auto">
 			<slot />
 		</main>

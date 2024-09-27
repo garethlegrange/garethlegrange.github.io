@@ -4,7 +4,12 @@ import Notification from "./Notification.astro";
 ---
 
 
-<header class="pt-6 flex items-center gap-6">
-    <a href="/" class="mr-auto text-neutral-700">Gareth le Grange</a>
-    <Notification />
-<header>
+<header class="text-sm text-neutral-700 font-mono mt-6 flex">
+    <a href="/" class="mr-auto font-semibold">Gareth le Grange</a>
+    <nav class="flex gap-2">
+        <a href="/about/">About</a>
+        <!-- <a href="/snippets/">Snippets</a> -->
+    </nav>
+</header>
+
+<Notification />

@@ -3,6 +3,7 @@ import { getCollection, getEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 
 import Layout from '../layouts/Layout.astro';
+import Arcticle from '../components/Arcticle.astro';
 import Hero from "../components/Hero.astro"
 import Card from "../components/Card.astro"
 
@@ -16,57 +17,39 @@ import faceImage from "../images/face.webp";
 ---
 
 <Layout title="Gareth le Grange - Senior Frontend Engineer" description="Gareth le Grange is an experienced Senior Frontend Engineer specialising in modern web development, UI/UX optimisation, and responsive design.">
-	<h1 class="font-bold text-2xl leading-normal text-neutral-900 text-pretty mb-8"><span class="size-12">👋🏼</span> Hello, I'm Gareth <Image src={faceImage} alt="That's me" class="size-12 inline-block -mt-3 -mx-2" /> - A Senior Frontend Developer passionate about crafting user-centric websites and applications.</h1>
-	<section class="mb-8">
-		<p class="text-neutral-700 mb-4">With over a <strong>decade of experience</strong>, I specialize in transforming complex ideas into sleek, high-performing websites and applications. Currently, I'm a <strong>senior frontend developer at Web Africa</strong>, where I lead the development of innovative, user-friendly features, working remotely from the beautiful <strong>Muizenberg</strong>, <strong>South Africa</strong>.</p>
+<Arcticle>
+	<h1><picture class="m-0 p-0 inline-block mr-2">
+		<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f44b_1f3fb/512.webp" type="image/webp">
+		<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f44b_1f3fb/512.gif" alt="👋" width="32" height="32">
+	  </picture>Hello, I'm Gareth <Image src={faceImage} alt="Me" class="inline-block m-0 p-0 size-16 -mt-5 -mx-3" /> - A Senior Frontend Developer passionate about crafting user-centric websites and applications.</h1>
 
-		<p class="text-neutral-700">
-			I bring ideas to life using a suite of modern tools and technologies, including <strong>React</strong>, <strong>JavaScript</strong>, and <strong>CSS</strong>, to craft responsive and engaging user interfaces. My toolkit also includes <strong>TypeScript</strong> for type safety, Redux or <strong>Zustand</strong> for efficient state management, and <strong>Tailwind CSS</strong> for rapid, utility-first styling.
-		</p>
+	<p>With over a <strong>decade of experience</strong>, I specialize in transforming complex ideas into sleek, high-performing websites and applications. Currently, I'm a <strong>senior frontend developer at Web Africa</strong>, where I lead the development of innovative, user-friendly features, working remotely from the beautiful <strong>Muizenberg</strong>, <strong>South Africa</strong>.</p>
 
-		<div class="flex gap-3 mt-4">
-			<a href="https://cal.com/garethlegrange" class="text-sm text-balance font-normal leading-none tracking-wide bg-neutral-900 text-slate-50 rounded-full py-2 px-4 flex gap-x-2 items-center">
-				<span>
-					<svg class="fill-neutral-50" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#643341" viewBox="0 0 256 256"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-48-56a8,8,0,0,1-8,8H136v16a8,8,0,0,1-16,0V160H104a8,8,0,0,1,0-16h16V128a8,8,0,0,1,16,0v16h16A8,8,0,0,1,160,152Z"></path></svg>
-				</span>
-				<span>Book a meeting</span>
-			</a>
-			<a href="mailto:garethlegrange+work@gmail.com?subject=Work%20with%20me" class="text-sm text-balance font-normal leading-none tracking-wide bg-transparent text-neutral-900 border border-neutral-700 rounded-full py-2 px-4 flex gap-x-2 items-center">
-				<span>
-					<svg class="fill-neutral-900" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#643341" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z"></path></svg>
-				</span>
-				<span>Contact me</span>
-			</a>
-		</div>
-	</section>
-	<section class="mb-8">
-		<h5 class="text-lg font-semibold mb-3">Work</h5>
-		<ul class="flex flex-col gap-2">
-			{workEntries.reverse().map(entry => (
-			  <li>
-				<h6 class="text-sm font-semibold">{entry.data.company}</h6>
-				<div class="flex justify-between text-xs">
-					<p class="font-mono">{entry.data.title}</p>
-					<p>{entry.data.startDate.toLocaleString('default', { month: 'short', year: 'numeric' })} - {entry.data.isCurrent ? <strong class="uppercase">Present</strong> : entry.data.endDate.toLocaleString('default', { month: 'short', year: 'numeric' })}</p>
-				</div>				
-			  </li>
-			))}
-		  </ul>
-	</section>
-	<section class="mb-8">
-		<h5 class="text-lg font-semibold mb-3">Projects</h5>
-		<ul class="flex flex-col gap-2">
-			<!-- {projects.map(project => (
-				<li>
-					<h6 class="text-sm font-semibold">{project.data.name}</h6>		
-				</li>
-			))} -->
-			<li class="text-sm italic text-center">Coming soon</li>
-		</ul>
-	</section>
-	<section>
-		<p class="text-neutral-700">
-			Outside of work, my family is my main source of inspiration and joy. I am a husband to an amazing wife and a proud father to two daughters – aged 16 and a 11 months. In my free time, I enjoy watching movies and sport such as Brazilian jiu-jitsu, mma and football (soccer).
-		</p>
-	</section>
+	<p class="flex gap-3 mt-4">
+		<a href="https://cal.com/garethlegrange" class="font-mono flex items-center space-x-1 whitespace-nowrap text-sm rounded-full py-2 px-4 bg-neutral-900 text-neutral-50">
+			Book a meeting
+		</a>
+		<a href="mailto:garethlegrange+work@gmail.com?subject=Work%20with%20me" class="font-mono flex items-center space-x-1 whitespace-nowrap text-sm border rounded-full py-2 px-4 bg-neutral-50 text-neutral-900">
+			Contact me
+		</a>
+	</p>
+	
+	<h2>Work</h2>
+		
+	<ul class="list-none pl-0">
+		{workEntries.reverse().map(entry => (
+		<li class="pl-0">
+			<strong class="text-sm">{entry.data.company}</strong>
+			<div class="flex justify-between text-xs">
+				<span class="font-mono">{entry.data.title}</span>
+				<span>{entry.data.startDate.toLocaleString('default', { month: 'short', year: 'numeric' })} - {entry.data.isCurrent ? <strong class="uppercase">Present</strong> : entry.data.endDate.toLocaleString('default', { month: 'short', year: 'numeric' })}</span>
+			</div>				
+		</li>
+		))}
+	</ul>
+
+	<h2>Projects</h2>
+
+	<p>Coming soon&hellip;</p>
+</Arcticle>
 </Layout>

@@ -1,14 +1,9 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 
 import Layout from '../layouts/Layout.astro';
 import Arcticle from '../components/Arcticle.astro';
-import Hero from "../components/Hero.astro"
-import Card from "../components/Card.astro"
-
-// const work = await getEntry("work", "web-africa");
-// const { Content } = await work.render();
 
 const workEntries = await getCollection("work");
 const projects = await getCollection("projects");
@@ -33,9 +28,9 @@ import faceImage from "../images/face.webp";
 			Contact me
 		</a>
 	</p>
-	
+
 	<h2>Work</h2>
-		
+
 	<ul class="list-none pl-0">
 		{workEntries.reverse().map(entry => (
 		<li class="pl-0">
@@ -43,13 +38,19 @@ import faceImage from "../images/face.webp";
 			<div class="flex justify-between text-xs">
 				<span class="font-mono">{entry.data.title}</span>
 				<span>{entry.data.startDate.toLocaleString('default', { month: 'short', year: 'numeric' })} - {entry.data.isCurrent ? <strong class="uppercase">Present</strong> : entry.data.endDate.toLocaleString('default', { month: 'short', year: 'numeric' })}</span>
-			</div>				
+			</div>
 		</li>
 		))}
 	</ul>
 
 	<h2>Projects</h2>
 
-	<p>Coming soon&hellip;</p>
+	<p>Coming soon...</p>
+
+	<!-- <ul>
+       	{projects.map(project => (
+            <li>{project.data.name}</li>
+       	))}
+	</ul> -->
 </Arcticle>
 </Layout>

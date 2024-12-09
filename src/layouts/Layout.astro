@@ -3,11 +3,11 @@ import "@fontsource/libre-caslon-condensed";
 import "@fontsource-variable/source-serif-4";
 import "@fontsource-variable/inter";
 import "@fontsource/geist-mono";
-import '@fontsource/permanent-marker';
+import "@fontsource/permanent-marker";
 
 import "@fontsource/geist-sans";
 import "@styles/app.css";
-import FreelanceAvailability from "@components/FreelanceAvailability.astro";
+import { SEO } from "astro-seo";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import FreeleanceAvailability from "@/components/FreelanceAvailability.astro";
@@ -20,7 +20,27 @@ import FreeleanceAvailability from "@/components/FreelanceAvailability.astro";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <SEO
+      title="Gareth le Grange - Senior Frontend Developer"
+      description="Experienced Senior Frontend Developer specializing in React, JavaScript, and responsive web design."
+      openGraph={{
+        basic: {
+          title: "Gareth le Grange - Senior Frontend Developer",
+          type: "profile",
+          image: "https://avatars.githubusercontent.com/u/12164551?v=4",
+        },
+      }}
+      extend={{
+        link: [{ rel: "icon", href: "/favicon.ico" }],
+        meta: [
+          { name: "author", content: "Gareth le Grange" },
+          {
+            name: "viewport",
+            content: "width=device-width, initial-scale=1.0",
+          },
+        ],
+      }}
+    />
   </head>
   <body class="font-inter-variable antialiased">
     <div
@@ -31,7 +51,9 @@ import FreeleanceAvailability from "@/components/FreelanceAvailability.astro";
       >
       </div>
     </div>
-    <div class="flex flex-col space-y-8 min-h-dvh container mx-auto max-w-4xl px-6">
+    <div
+      class="flex flex-col space-y-8 min-h-dvh container mx-auto max-w-4xl px-6"
+    >
       <Header />
       <main class="grow">
         <slot />
@@ -41,7 +63,6 @@ import FreeleanceAvailability from "@/components/FreelanceAvailability.astro";
     </div>
   </body>
 </html>
-
 
 <script type="module">
   import { annotate } from "https://unpkg.com/rough-notation?module";
@@ -67,7 +88,7 @@ import FreeleanceAvailability from "@/components/FreelanceAvailability.astro";
 
   const name = document.getElementById("underline");
   const logo = document.getElementById("logo");
-  const arrow  = document.getElementById("arrow");
+  const arrow = document.getElementById("arrow");
 
   name.addEventListener("mouseover", () => {
     logo.classList.add("scale-125");

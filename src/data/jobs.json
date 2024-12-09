@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "companyName": "Mercedes-Benz",
+    "title": "Senior Frontend Developer",
+    "start": "November 2024",
+    "end": null
+  },
+  {
+    "id": 2,
+    "companyName": "Kalahari",
+    "title": "Senior Frontend Developer",
+    "start": "April 2013",
+    "end": "December 2014"
+  },
+  {
+    "id": 3,
+    "companyName": "PriceCheck",
+    "title": "Senior Frontend Developer",
+    "start": "January 2015",
+    "end": "March 2018"
+  },
+  {
+    "id": 4,
+    "companyName": "Quirk",
+    "title": "Intermediate Frontend Developer",
+    "start": "October 2010",
+    "end": "March 2013"
+  },
+  {
+    "id": 5,
+    "companyName": "Webafrica",
+    "title": "Senior Frontend Developer",
+    "start": "October 2018",
+    "end": "October 2024"
+  }
+]

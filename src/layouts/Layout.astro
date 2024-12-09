@@ -1,58 +1,81 @@
 ---
-import { ViewTransitions } from "astro:transitions";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import PostHog from "../components/PostHog.astro";
+import "@fontsource/libre-caslon-condensed";
+import "@fontsource-variable/source-serif-4";
+import "@fontsource-variable/inter";
+import "@fontsource/geist-mono";
+import '@fontsource/permanent-marker';
 
-interface Props {
-	title: string;
-	description: string;
-}
-
-const { title, description } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+import "@fontsource/geist-sans";
+import "@styles/app.css";
+import FreelanceAvailability from "@components/FreelanceAvailability.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import FreeleanceAvailability from "@/components/FreelanceAvailability.astro";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<meta name="title" content={title} />
-		<meta name="description" content={description} />
-		<link rel="canonical" href={canonicalURL} />
-		<link rel="preload" href="MonaSansVF-Regular" as="font" type="font/woff2" crossorigin>
-		<ViewTransitions  />
-		<PostHog />
-	</head>
-	<body class="container mx-auto max-w-3xl flex flex-col gap-6 px-5 min-h-screen">
-		<Header />
-		<main class="mb-auto">
-			<slot />
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Basics</title>
+  </head>
+  <body class="font-inter-variable antialiased">
+    <div
+      class="absolute inset-0 -z-10 size-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"
+    >
+      <div
+        class="absolute inset-x-0 top-0 -z-10 m-auto size-[310px] rounded-full bg-neutral-400 opacity-20 blur-[100px]"
+      >
+      </div>
+    </div>
+    <div class="flex flex-col space-y-8 min-h-dvh container mx-auto max-w-4xl px-6">
+      <Header />
+      <main class="grow">
+        <slot />
+        <FreeleanceAvailability availability="limited" />
+      </main>
+      <Footer />
+    </div>
+  </body>
 </html>
 
-<style is:global>
-	/* https://github.com/github/mona-sans */
-	@font-face {
-		font-family: "Mona Sans";
-		src:	url("/fonts/mona-sans/MonaSansVF-Regular.woff2") format("woff2 supports variations"), 
-				url("/fonts/mona-sans/MonaSansVF-Regular.woff2") format("woff2-variations");
-		font-weight: 200 900;
-		font-stretch: 75% 125%;
-	}
 
-	/* https://github.com/githubnext/monaspace */
-	@font-face {
-		font-family: "Monaspace Argon";
-		src:	url("/font/monaspace/MonaspaceArgonVarVF[wght,wdth,slnt].woff2") format("woff2 supports variations"), 
-				url("/font/monaspace/MonaspaceArgonVarVF[wght,wdth,slnt].woff2") format("woff2-variations");
-		font-weight: 200 900;
-		font-stretch: 75% 125%;
-	}
-</style>
+<script type="module">
+  import { annotate } from "https://unpkg.com/rough-notation?module";
+
+  const highlight = annotate(document.querySelector("#highlight"), {
+    type: "highlight",
+    color: "yellow",
+  });
+  highlight.show();
+
+  const box = annotate(document.querySelector("#box"), {
+    type: "box",
+    color: "red",
+  });
+  box.show();
+
+  const underline = annotate(document.querySelector("#underline"), {
+    type: "underline",
+    color: "blue",
+  });
+
+  underline.show();
+
+  const name = document.getElementById("underline");
+  const logo = document.getElementById("logo");
+  const arrow  = document.getElementById("arrow");
+
+  name.addEventListener("mouseover", () => {
+    logo.classList.add("scale-125");
+    arrow.classList.remove("hidden");
+  });
+
+  name.addEventListener("mouseout", () => {
+    logo.classList.remove("scale-125");
+    arrow.classList.add("hidden");
+  });
+</script>

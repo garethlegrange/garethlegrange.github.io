@@ -1,15 +1,36 @@
 ---
-import Notification from "./Notification.astro";
+import Logo from "@images/face.svg";
+import Arrow from "@images/arrow.svg";
 
+const pathname = Astro.url;
+console.log("pathname", pathname);
 ---
 
+<header class="py-4">
+  <div class="container mx-auto flex space-x-4 items-center">
+    <a href="/" class="relative size-12">
+      <Logo
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-12 transition-all duration-300 hover:scale-125"
+        id="logo"
+      />
+      <span class="sr-only">Gareth le Grange</span>
 
-<header class="text-sm text-neutral-700 font-mono mt-6 flex">
-    <a href="/" class="mr-auto font-semibold">Gareth le Grange</a>
-    <nav class="flex gap-2">
-        <a href="/about/">About</a>
-        <!-- <a href="/snippets/">Snippets</a> -->
+      <Arrow
+        aria-hidden="true"
+        class="w-28 h-12 absolute top-8 -left-8 hidden"
+        id="arrow"
+      />
+    </a>
+    <nav class="flex space-x-2">
+      <a href="/about">About</a>
+      <!-- <a href="/projects" class={pathname === "/" ? "active" : ""}>Projects</a> -->
+      <a href="/blog">Blog</a>
     </nav>
+    <a
+      href="mailto:garethlegrange+work@gmail.com"
+      role="button"
+      class="ml-auto text-white bg-blue-600 hover:bg-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 cursor-pointer"
+      >Contact me</a
+    >
+  </div>
 </header>
-
-<Notification />

@@ -3,11 +3,6 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-libre-caslon-condensed: "Libre Caslon Condensed", serif;
   --font-source-serif: "Source Serif 4 Variable", serif;
   --font-inter-variable: "Inter Variable", sans-serif;
-  --font-geist-mono: "Geist Mono", monospace;
-  --font-handwriting: "Permanent Marker", "cursive";
-
-
 }

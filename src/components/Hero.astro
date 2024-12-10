@@ -14,3 +14,37 @@ import Plus10Years from "@images/plus_ten_years.svg";
   <span id="highlight" class="whitespace-nowrap">user-centric</span> websites and
   applications.
 </h1>
+
+<script type="module">
+  import { annotate } from "https://unpkg.com/rough-notation?module";
+
+  const highlight = annotate(document.querySelector("#highlight"), {
+    type: "highlight",
+    color: "yellow",
+  });
+
+  const box = annotate(document.querySelector("#box"), {
+    type: "box",
+    color: "red",
+  });
+
+  const underline = annotate(document.querySelector("#underline"), {
+    type: "underline",
+    color: "blue",
+  });
+
+  highlight.show();
+  box.show();
+  underline.show();
+
+  const name = document.getElementById("underline");
+  const logo = document.getElementById("logo");
+
+  name.addEventListener("mouseover", () => {
+    logo.classList.add("scale-125");
+  });
+
+  name.addEventListener("mouseout", () => {
+    logo.classList.remove("scale-125");
+  });
+</script>

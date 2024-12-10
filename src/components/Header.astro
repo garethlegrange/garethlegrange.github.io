@@ -1,36 +1,33 @@
 ---
-import Logo from "@images/face.svg";
-import Arrow from "@images/arrow.svg";
+import Logo from "@images/logo.svg";
+import ThatsMe from "@images/thats_me.svg";
 
 const pathname = Astro.url;
 console.log("pathname", pathname);
 ---
 
 <header class="py-4">
-  <div class="container mx-auto flex space-x-4 items-center">
-    <a href="/" class="relative size-12">
-      <Logo
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-12 transition-all duration-300 hover:scale-125"
-        id="logo"
-      />
-      <span class="sr-only">Gareth le Grange</span>
-
-      <Arrow
+  <div class="container mx-auto flex space-x-6 items-center">
+    <div class="relative size-12">
+      <a href="/">
+        <Logo
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-12 transition-all duration-300 hover:scale-125"
+          id="logo"
+        />
+        <span class="sr-only">Gareth le Grange</span>
+      </a>
+      <ThatsMe
         aria-hidden="true"
-        class="w-28 h-12 absolute top-8 -left-8 hidden"
-        id="arrow"
+        class="w-24 h-8 absolute top-13 left-8 transition-all duration-300"
+        id="thats-me"
       />
-    </a>
-    <nav class="flex space-x-2">
+    </div>
+    <nav class="flex space-x-3 font-geist-mono">
       <a href="/about">About</a>
-      <!-- <a href="/projects" class={pathname === "/" ? "active" : ""}>Projects</a> -->
       <a href="/blog">Blog</a>
+      <!-- <a href="/blog">Projects</a> -->
+      <!-- <a href="/blog">Snippets</a> -->
     </nav>
-    <a
-      href="mailto:garethlegrange+work@gmail.com"
-      role="button"
-      class="ml-auto text-white bg-blue-600 hover:bg-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 cursor-pointer"
-      >Contact me</a
-    >
+    <a role="button" href="mailto:garethlegrange+work@gmail.com" class="font-geist-mono uppercase px-4 py-2 rounded-md border border-black bg-neutral-100/75 text-neutral-950 text-sm hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition duration-200 ml-auto">Contact me</a>
   </div>
 </header>

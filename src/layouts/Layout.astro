@@ -9,6 +9,7 @@ import "@fontsource/geist-sans";
 import "@styles/app.css";
 import { SEO } from "astro-seo";
 import Header from "@/components/Header.astro";
+import Hero from "@/components/Hero.astro";
 import Footer from "@/components/Footer.astro";
 import FreeleanceAvailability from "@/components/FreelanceAvailability.astro";
 ---
@@ -22,7 +23,7 @@ import FreeleanceAvailability from "@/components/FreelanceAvailability.astro";
     <meta name="generator" content={Astro.generator} />
     <SEO
       title="Gareth le Grange - Senior Frontend Developer"
-      description="Experienced Senior Frontend Developer specializing in React, JavaScript, and responsive web design."
+      description="Experienced Senior Frontend Developer specializing in HTML, CSS, React, TypeScript, JavaScript, and responsive web design."
       openGraph={{
         basic: {
           title: "Gareth le Grange - Senior Frontend Developer",
@@ -47,7 +48,7 @@ import FreeleanceAvailability from "@/components/FreelanceAvailability.astro";
       class="absolute inset-0 -z-10 size-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"
     >
       <div
-        class="absolute inset-x-0 top-0 -z-10 m-auto size-[310px] rounded-full bg-neutral-400 opacity-20 blur-[100px]"
+        class="absolute inset-x-0 top-0 -z-10 m-auto size-[310px] rounded-full bg-blue-400 opacity-20 blur-[100px]"
       >
       </div>
     </div>
@@ -55,6 +56,7 @@ import FreeleanceAvailability from "@/components/FreelanceAvailability.astro";
       class="flex flex-col space-y-8 min-h-dvh container mx-auto max-w-4xl px-6"
     >
       <Header />
+      <Hero />
       <main class="grow">
         <slot />
         <FreeleanceAvailability availability="limited" />
@@ -88,15 +90,15 @@ import FreeleanceAvailability from "@/components/FreelanceAvailability.astro";
 
   const name = document.getElementById("underline");
   const logo = document.getElementById("logo");
-  const arrow = document.getElementById("arrow");
+  const thatsMe = document.getElementById("thats-me");
 
   name.addEventListener("mouseover", () => {
     logo.classList.add("scale-125");
-    arrow.classList.remove("hidden");
+    // thatsMe.classList.remove("hidden");
   });
 
   name.addEventListener("mouseout", () => {
     logo.classList.remove("scale-125");
-    arrow.classList.add("hidden");
+    // thatsMe.classList.add("hidden");
   });
 </script>

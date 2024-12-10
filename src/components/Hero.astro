@@ -16,35 +16,24 @@ import Plus10Years from "@images/plus_ten_years.svg";
 </h1>
 
 <script type="module">
-  import { annotate } from "https://unpkg.com/rough-notation?module";
+  import {
+    annotate,
+    annotationGroup,
+  } from "https://unpkg.com/rough-notation?module";
 
-  const highlight = annotate(document.querySelector("#highlight"), {
-    type: "highlight",
-    color: "yellow",
-  });
-
-  const box = annotate(document.querySelector("#box"), {
-    type: "box",
-    color: "red",
-  });
-
-  const underline = annotate(document.querySelector("#underline"), {
+  const a1 = annotate(document.querySelector("#underline"), {
     type: "underline",
-    color: "blue",
+    color: "#48bb78",
   });
 
-  highlight.show();
-  box.show();
-  underline.show();
+  const a2 = annotate(document.querySelector("#box"), { type: "box", color: "#3b82f6" });
 
-  const name = document.getElementById("underline");
-  const logo = document.getElementById("logo");
-
-  name.addEventListener("mouseover", () => {
-    logo.classList.add("scale-125");
+  const a3 = annotate(document.querySelector("#highlight"), {
+    type: "highlight",
+    color: "#f5d35b",
   });
 
-  name.addEventListener("mouseout", () => {
-    logo.classList.remove("scale-125");
-  });
+  const ag = annotationGroup([a1, a2, a3]);
+
+  ag.show();
 </script>

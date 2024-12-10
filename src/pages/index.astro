@@ -77,11 +77,11 @@ const posts = (await getCollection("blog")).sort(
             <li class="bg-neutral-100/50 p-3 rounded-lg">
               <header class="flex flex-col justify-between mb-3">
                 <a class="text-blue-700" href={`/blog/${post.id}`}>
-                  <h6 class="font-bold font-libre-caslon-condensed text-base">
+                  <h6 class="font-bold font-source-serif text-base">
                     {post.data.title}
                   </h6>
                 </a>
-                <time class="text-xs text-neutral-600 font-geist-mono">
+                <time class="text-xs text-neutral-600 font-inter-variable">
                   <span class="sr-only">Published:</span>
                   {new Date(post.data.pubDate).toLocaleDateString("en-ZA", {
                     year: "numeric",
@@ -95,7 +95,7 @@ const posts = (await getCollection("blog")).sort(
 
               <div class="mt-2 text-right">
                 <a
-                  class="items-center gap-2 text-sm text-blue-600 font-geist-mono"
+                  class="items-center gap-2 text-sm text-blue-600 font-inter-variable"
                   href={`/blog/${post.id}`}
                 >
                   Read more

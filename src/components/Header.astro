@@ -1,20 +1,15 @@
 ---
-import Logo from "@images/logo.svg";
+import Logo from "@components/Logo.astro"
 import ThatsMe from "@images/thats_me.svg";
-
-const pathname = Astro.url;
-console.log("pathname", pathname);
+import Nav from "@components/Nav.astro";
+import Button from "@components/Button.astro";
 ---
 
 <header class="py-4">
   <div class="container mx-auto flex space-x-6 items-center">
-    <div class="relative size-12">
+    <div class="relative size-12 mr-auto">
       <a href="/">
-        <Logo
-          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-12 transition-all duration-300 hover:scale-125"
-          id="logo"
-        />
-        <span class="sr-only">Gareth le Grange</span>
+        <Logo />
       </a>
       <ThatsMe
         aria-hidden="true"
@@ -22,12 +17,7 @@ console.log("pathname", pathname);
         id="thats-me"
       />
     </div>
-    <nav class="flex space-x-3 font-inter-variable">
-      <a href="/about">About</a>
-      <a href="/blog">Blog</a>
-      <!-- <a href="/blog">Projects</a> -->
-      <!-- <a href="/blog">Snippets</a> -->
-    </nav>
-    <a role="button" href="mailto:garethlegrange+work@gmail.com" class="font-inter-variable uppercase px-4 py-2 rounded-md border border-black bg-neutral-100/75 text-neutral-950 text-sm hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition duration-200 ml-auto">Contact me</a>
+    <Nav />
+    <Button>Contact me</Button>
   </div>
 </header>

@@ -1,0 +1,26 @@
+---
+import LogoImg from "@images/logo.svg";
+---
+
+<div>
+  <LogoImg
+    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-12 transition-all duration-300 hover:scale-125"
+    id="logo"
+  />
+  <span class="sr-only">Gareth le Grange</span>
+</div>
+
+<script>
+  const name = document.getElementById("underline");
+  const logo = document.getElementById("logo");
+
+  if (name && logo) {
+    name.addEventListener("mouseover", () => {
+      logo.classList.add("scale-150");
+    });
+
+    name.addEventListener("mouseout", () => {
+      logo.classList.remove("scale-150");
+    });
+  }
+</script>

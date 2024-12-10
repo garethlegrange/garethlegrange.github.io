@@ -1,0 +1,78 @@
+<nav class="font-inter-variable text-sm flex gap-3">
+  <a href="/about">About</a>
+  <a href="/blog">Blog</a>
+  <!-- <a href="/blog">Projects</a> -->
+  <!-- <a href="/blog">Snippets</a> -->
+</nav>
+
+<script type="module">
+ import { annotate } from "https://unpkg.com/rough-notation?module";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = document.querySelectorAll("nav a");
+  let currentAnnotation = null;
+  let hoverAnnotation = null;
+
+  // Find and annotate current page link on load
+  const currentPageLink = Array.from(navLinks).find(
+    link => link.getAttribute('href') === window.location.pathname
+  );
+
+  if (currentPageLink) {
+    currentPageLink.classList.add('active');
+    currentAnnotation = annotate(currentPageLink, { 
+      type: "circle", 
+      color: "#3b82f6",
+      animate: true,
+      animationDuration: 0
+    });
+    currentAnnotation.show();
+  }
+
+  // Add hover interactions
+  navLinks.forEach((link) => {
+    link.addEventListener("mouseenter", () => {
+      // Remove 'active' class from all links except current page link
+      navLinks.forEach((l) => {
+        if (l !== currentPageLink) {
+          l.classList.remove("active");
+        }
+      });
+
+      // Add 'active' class to hovered link
+      link.classList.add("active");
+
+      // Remove previous hover annotation if exists
+      if (hoverAnnotation) {
+        hoverAnnotation.remove();
+      }
+
+      // Create new hover annotation
+      hoverAnnotation = annotate(link, { 
+        type: "circle", 
+        color: "#60a5fa", // Slightly different color for hover
+        animate: true,
+        animationDuration: 300
+      });
+      hoverAnnotation.show();
+    });
+
+    link.addEventListener("mouseleave", () => {
+      // Remove 'active' class from non-current page links
+      if (link !== currentPageLink) {
+        link.classList.remove("active");
+      }
+
+      // Hide hover annotation
+      if (hoverAnnotation) {
+        hoverAnnotation.hide();
+      }
+
+      // If there was a current page annotation, ensure it's still visible
+      if (currentAnnotation) {
+        currentAnnotation.show();
+      }
+    });
+  });
+});
+</script>

@@ -1,12 +1,12 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import { classnames } from "@/utils/classnames";
+import { cn } from "@/utils/cn";
 
 interface Props extends HTMLAttributes<"a"> {}
 
 const { ...props } = Astro.props;
 ---
 
-<a class={classnames("underline", Astro.props.class)} {...props}>
+<a class={cn("underline", Astro.props.class)} {...props}>
   <slot />
 </a>

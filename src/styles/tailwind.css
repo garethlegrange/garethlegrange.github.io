@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "EB Garamond Variable", serif;
+  --font-sans: "Geist Sans", sans-serif;
+  --font-sans: "Geist Sans", sans-serif;
+  --font-mono: "Geist Mono", monospace;
+  --font-cursive: "Caveat Variable", cursive;
+}

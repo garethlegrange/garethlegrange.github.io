@@ -1,8 +1,0 @@
-@import "tailwindcss";
-
-@plugin "@tailwindcss/typography";
-
-@theme {
-  --font-source-serif: "Source Serif 4 Variable", serif;
-  --font-inter-variable: "Inter Variable", sans-serif;
-}

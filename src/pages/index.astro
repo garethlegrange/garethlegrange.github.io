@@ -6,9 +6,40 @@ const jobs = await getCollection("jobs");
 ---
 
 <Layout>
-  <h1 class="text-blue-500">Home</h1>
+  <p class="text-pretty text-neutral-800 mb-6 text-lg">
+    With <strong>over a decade of experience</strong>, I specialize in
+    transforming complex ideas into sleek, high-performing websites and
+    applications. Currently, I'm a
+    <strong>senior frontend developer at Mercedes-Benz</strong>, where I develop
+    innovative, user-friendly features and applications, working remotely from
+    the beautiful <strong>Muizenberg, South Africa</strong>.
+  </p>
 
-  <ol>
-    {jobs.map((job: any) => <li>{job.data.companyName}</li>)}
-  </ol>
+  <div class="grid grid-cols-3 gap-8">
+    <div class="col-span-2">
+      <section id="snippets">
+        <h2 class="text-xl font-semibold mb-3">Snippets</h2>
+        <p class="mb-2">
+          <em>Bite-sized insights, updates, and code samples</em> from my development
+          journey. Whether it’s a <strong>clever code trick</strong>, a <strong
+            >quick solution</strong
+          > to a tricky problem, or <strong>exciting news</strong> from the tech
+          world, you’ll find it all here.
+        </p>
+        <p>
+          <strong
+            >Perfect for when you’re short on time but eager to learn something
+            new.</strong
+          >
+        </p>
+      </section>
+    </div>
+    <div>
+      <ol
+        class="sticky top-4 rounded-md border border-neutral-900 bg-white p-4"
+      >
+        {jobs.map((job: any) => <li>{job.data.companyName}</li>)}
+      </ol>
+    </div>
+  </div>
 </Layout>

@@ -1,6 +1,23 @@
 <section class="container mx-auto py-4 px-6">
   <h1 class="font-serif text-[clamp(1.5rem,3.2vw,4em)] leading-[clamp(2.5rem,5.5vw,6em)] text-pretty font-[400]">
-    <span>👋</span> Hello, I'm <span id="underline" class="whitespace-nowrap">Gareth</span> - A <strong class="font-[800]"><span id="box" class="whitespace-nowrap">senior</span> frontend developer</strong> passionate about
+    <img src="wave.svg" class="size-16 float-start mr-2" id="wave-image" alt="Wave image" /> Hello, I'm <span id="underline" class="whitespace-nowrap">Gareth</span> - A <strong class="font-[800]"><span id="box" class="whitespace-nowrap">senior</span> frontend developer</strong> passionate about
     crafting <em class="font-[500] whitespace-nowrap" id="highlight">user-centric</em> websites and applications.
   </h1>  
 </section>
+
+<script>
+  const image = document.getElementById('wave-image') as HTMLImageElement | null;
+
+  if (image) {
+    const originalSrc = 'wave.svg';
+    const hoverSrc = 'wave.webp';
+
+    image.addEventListener('mouseenter', () => {
+      image.src = hoverSrc;
+    });
+
+    image.addEventListener('mouseleave', () => {
+      image.src = originalSrc;
+    });
+  }
+</script>

@@ -1,28 +1,100 @@
 ---
 import Logo from "@images/logo.svg";
 const links = [
-  { name: "About", link: "/about" },
   { name: "Projects", link: "/projects" },
   { name: "Snippets", link: "/snippets" },
 ];
 ---
 
 <header>
-  <div class="container mx-auto flex items-center gap-4 py-4 px-6">
+  <div class="container mx-auto max-w-4xl flex items-center gap-4 py-4 px-6">
     <a href="/" class="mr-auto" title="Gareth le Grange">
       <Logo class="size-20" />
-      <span aria-hidden="true" class="font-cursive font-semibold text-xl">That's me</span>
+      <span
+        aria-hidden="true"
+        class="font-cursive font-semibold text-xl text-blue-600">That's me</span
+      >
     </a>
     <nav>
       <ul class="flex gap-3 text-sm font-mono">
-        {links.map((link) => <li>{link.name}</li>)}
+        <li>
+          <button id="show-dialog">About</button>
+        </li>
+        {
+          links.map((link) => (
+            <li>
+              <a href={link.link}>{link.name}</a>
+            </li>
+          ))
+        }
       </ul>
     </nav>
     <a
       role="button"
       href="mailto:garethlegrange+work@gmail.com"
-      class="text-sm font-mono font-semibold uppercase px-4 py-2 rounded-md border border-neutral-900 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition-all duration-200 cursor-pointer"
+      class="text-sm font-mono font-semibold uppercase px-4 py-2 rounded-md border border-neutral-900 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition-all duration-200 cursor-pointer bg-white"
       >Contact me</a
     >
   </div>
 </header>
+
+<dialog class="fixed top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 p-6 rounded-lg backdrop:bg-black/50">
+  <button id="close-dialog" autofocus>Close</button>
+  <article class="prose prose-neutral prose-a:no-underline max-w-none">
+    <h1>About</h1>
+    <p>
+      With over a decade of <strong>experience</strong>, I specialize in
+      transforming complex ideas into sleek, high-performing websites and
+      applications. Currently, I'm a <strong>Senior Frontend Developer</strong> at
+      <strong>Mercedes-Benz</strong>, where I develop innovative, user-friendly
+      applications, working remotely from the beautiful <strong
+        >Muizenberg</strong
+      >, <strong>South Africa</strong>.
+    </p>
+    <p>
+      I bring ideas to life using a suite of modern tools and technologies,
+      including <strong>React</strong>, <strong>JavaScript</strong>, and <strong
+        >CSS</strong
+      >, to craft responsive and engaging user interfaces. My toolkit also
+      includes <strong>TypeScript</strong> for type safety, Redux or
+      <strong>Zustand</strong> for efficient state management, and <strong
+        >Tailwind CSS</strong
+      > for rapid, utility-first styling. By integrating these tools with agile methodologies
+      and staying current with industry trends, I create clean, maintainable code
+      and collaborate effectively with cross-functional teams. This approach ensures
+      that my solutions are not only functional and high-quality but also deliver
+      exceptional user experiences.
+    </p>
+    <p>
+      Outside of work, my family is my main source of inspiration and joy. I am
+      a
+      <strong>husband</strong> to an amazing wife and a proud <strong
+        >father</strong
+      > to two daughters – aged 16 and a 1 year. In my free time, I enjoy watching
+      movies and sport such as Brazilian jiu-jitsu, mma and football (soccer).
+    </p>
+    <p>
+      <strong
+        >Overall, I am committed to staying up-to-date with the latest front-end
+        development trends and technologies, and to delivering high-quality work
+        that meets the needs of users and clients alike.</strong
+      >
+    </p>
+  </article>
+</dialog>
+
+<script>
+  const dialog = document.querySelector("dialog");
+  const showButton = document.querySelector("#show-dialog");
+  const closeButton = document.querySelector("#close-dialog");
+
+  // "Show the dialog" button opens the dialog modally
+  showButton.addEventListener("click", () => {
+    dialog.showModal();
+  });
+
+  // "Close" button closes the dialog
+  closeButton.addEventListener("click", () => {
+    dialog.close();
+  });
+</script>

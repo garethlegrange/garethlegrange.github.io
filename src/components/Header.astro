@@ -1,6 +1,6 @@
 ---
-import Logo from "@images/logo.svg";
 import Logoo from "@components/Logo.astro";
+
 const links = [
   { name: "Projects", link: "/projects" },
   { name: "Snippets", link: "/snippets" },
@@ -13,9 +13,7 @@ const links = [
     <nav>
       <ul class="flex gap-3 text-sm font-mono">
         <li>
-          <button popovertarget="mypopover" popovertargetaction="show">
-            About
-          </button>
+          <button popovertarget="my-popover">About</button>
         </li>
         {
           links.map((link) => (
@@ -35,57 +33,41 @@ const links = [
   </div>
 </header>
 
-<div
-  id="mypopover"
-  class="backdrop:bg-black/50 rounded-lg mx-auto max-w-[60%] py-8 px-6 top-[10%]"
-  popover
->
-  <article
-    class="prose prose-neutral prose-a:no-underline max-w-none font-sans"
-  >
-    <h1 class="font-semibold text-3xl inline" id="about">About</h1>
-    <p>
-      With over a decade of <strong>experience</strong>, I specialize in
-      transforming complex ideas into sleek, high-performing websites and
-      applications. Currently, I'm a <strong>Senior Frontend Developer</strong> at
-      <strong>Mercedes-Benz</strong>, where I develop innovative, user-friendly
-      applications, working remotely from the beautiful <strong
-        >Muizenberg</strong
-      >, <strong>South Africa</strong>.
-    </p>
-    <p>
-      I bring ideas to life using a suite of modern tools and technologies,
-      including <strong>React</strong>, <strong>JavaScript</strong>, and <strong
-        >CSS</strong
-      >, to craft responsive and engaging user interfaces. My toolkit also
-      includes <strong>TypeScript</strong> for type safety, Redux or
-      <strong>Zustand</strong> for efficient state management, and <strong
-        >Tailwind CSS</strong
-      > for rapid, utility-first styling. By integrating these tools with agile methodologies
-      and staying current with industry trends, I create clean, maintainable code
-      and collaborate effectively with cross-functional teams. This approach ensures
-      that my solutions are not only functional and high-quality but also deliver
-      exceptional user experiences.
-    </p>
-    <p>
-      Outside of work, my family is my main source of inspiration and joy. I am
-      a
-      <strong>husband</strong> to an amazing wife and a proud <strong
-        >father</strong
-      > to two daughters – aged 16 and a 1 year. In my free time, I enjoy watching
-      movies and sport such as Brazilian jiu-jitsu, mma and football (soccer).
-    </p>
-    <p>
-      <strong
-        >Overall, I am committed to staying up-to-date with the latest front-end
-        development trends and technologies, and to delivering high-quality work
-        that meets the needs of users and clients alike.</strong
-      >
-    </p>
-  </article>
+<div id="my-popover" popover>
+  <p><p>I am a popover with more information. Hit <kbd>esc</kbd> or click away to close me.<p></p>
 </div>
 
+<style>
+[popover] {
+  background: black;
+  color: white;
+  font-weight: 400;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  max-width: 20ch;
+  line-height: 1.4;
+  top: 2rem;
+  margin: 0 auto;
+}
 
-<script>
-// close
-</script>
+
+/* Animating the popover in */
+
+/*   IS-OPEN STATE   */
+[popover]:popover-open {
+  translate: 0 0;
+}
+
+/*   EXIT STATE   */
+[popover] {
+  transition: translate 0.7s ease-out, display 0.7s ease-out allow-discrete, overlay 0.7s ease-out allow-discrete;
+  translate: 0 -22rem;
+}
+
+/*   0. BEFORE-OPEN STATE   */
+@starting-style {
+  [popover]:popover-open {
+    translate: 0 -22rem;
+  }
+}
+</style>

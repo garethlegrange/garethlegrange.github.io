@@ -1,0 +1,32 @@
+---
+import LogoImg from "@images/logo.svg";
+---
+
+<a href="/" class="mr-auto" title="Gareth le Grange">
+  <LogoImg class="size-20 anchor" />
+  <div class="text">
+    <p>That's me</p>
+  </div>
+</a>
+
+<style>
+  .anchor {
+    anchor-name: --myAnchor;
+  }
+
+  .text {
+
+
+
+  position: fixed;
+  position-anchor: --myAnchor;
+  position-visibility: anchors-visible;
+  bottom: anchor(top);
+}
+
+/* alternate position */
+@position-try --bottom {
+  margin: var(--padding) 0 0 var(--padding);
+  inset-area: bottom;
+}
+</style>

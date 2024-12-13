@@ -1,5 +1,6 @@
 ---
 import Logo from "@images/logo.svg";
+import Logoo from "@components/Logo.astro";
 const links = [
   { name: "Projects", link: "/projects" },
   { name: "Snippets", link: "/snippets" },
@@ -8,17 +9,13 @@ const links = [
 
 <header>
   <div class="container mx-auto max-w-4xl flex items-center gap-4 py-4 px-6">
-    <a href="/" class="mr-auto" title="Gareth le Grange">
-      <Logo class="size-20" />
-      <span
-        aria-hidden="true"
-        class="font-cursive font-semibold text-xl text-blue-600">That's me</span
-      >
-    </a>
+    <Logoo />
     <nav>
       <ul class="flex gap-3 text-sm font-mono">
         <li>
-          <button id="show-dialog">About</button>
+          <button popovertarget="mypopover" popovertargetaction="show">
+            About
+          </button>
         </li>
         {
           links.map((link) => (
@@ -38,10 +35,15 @@ const links = [
   </div>
 </header>
 
-<dialog class="fixed top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 p-6 rounded-lg backdrop:bg-black/50">
-  <button id="close-dialog" autofocus>Close</button>
-  <article class="prose prose-neutral prose-a:no-underline max-w-none">
-    <h1>About</h1>
+<div
+  id="mypopover"
+  class="backdrop:bg-black/50 rounded-lg mx-auto max-w-[60%] py-8 px-6 top-[10%]"
+  popover
+>
+  <article
+    class="prose prose-neutral prose-a:no-underline max-w-none font-sans"
+  >
+    <h1 class="font-semibold text-3xl inline" id="about">About</h1>
     <p>
       With over a decade of <strong>experience</strong>, I specialize in
       transforming complex ideas into sleek, high-performing websites and
@@ -81,20 +83,9 @@ const links = [
       >
     </p>
   </article>
-</dialog>
+</div>
+
 
 <script>
-  const dialog = document.querySelector("dialog");
-  const showButton = document.querySelector("#show-dialog");
-  const closeButton = document.querySelector("#close-dialog");
-
-  // "Show the dialog" button opens the dialog modally
-  showButton.addEventListener("click", () => {
-    dialog.showModal();
-  });
-
-  // "Close" button closes the dialog
-  closeButton.addEventListener("click", () => {
-    dialog.close();
-  });
+// close
 </script>

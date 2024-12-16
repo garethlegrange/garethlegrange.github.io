@@ -1,5 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import { Image } from 'astro:assets';
+import Img from '@images/my-family.jpg';
 ---
 
 <Layout>
@@ -32,12 +34,8 @@ import Layout from "@layouts/Layout.astro";
 
     <h3>My Family</h3>
 
-    <img
-      alt="My family"
-      loading="lazy"
-      class="rotate-3 rounded-lg bg-zinc-100 lg:float-right max-w-sm ml-4"
-      src="my-family.jpeg"
-    />
+    <Image src={Img} alt="My family" loading="lazy"
+    class="rotate-3 rounded-lg bg-zinc-100 lg:float-right max-w-sm ml-4 border border-neutral-900 shadow-[4px_4px_0px_0px_rgba(0,0,0)] p-3" />
 
     <p>
       Outside of work, my family is my main source of inspiration and joy. I am

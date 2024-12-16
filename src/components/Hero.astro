@@ -1,5 +1,6 @@
 ---
-
+import { Image } from "astro:assets";
+import Img from "@images/me-and-jubilee.jpg";
 ---
 
 <section class="container mx-auto max-w-4xl my-4">
@@ -39,10 +40,11 @@
 >
   <button id="closeButton" autofocus>Close</button>
   <figure>
-    <img
-      src="me-and-jubilee.jpeg"
+    <Image
+      src={Img}
       alt="Me and Jubilee, bug fixing."
-      style="width:100%"
+      loading="lazy"
+      class="w-full"
     />
     <figcaption class="text-sm mt-1 text-center">
       Jubilee helping me fix a bug 🐛

@@ -2,7 +2,7 @@
 title: "Using Tailwind CSS 4 with Astro 🎨"
 description: "Learn how to set up and use Tailwind CSS 4 in your Astro projects for seamless styling and productivity."
 pubDate: "16 Dec 2024"
-heroImage: "tailwind.jpg"
+# heroImage: "tailwind.jpg"
 ---
 
 ![Tailwind CSS 4](heroImage)

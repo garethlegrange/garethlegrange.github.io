@@ -34,13 +34,12 @@
   </h1>
 </section>
 
-<button popovertarget="my-popover2" class="trigger-btn">Open Popover</button>
+<button popovertarget="mypopover">Toggle the popover</button>
 
-<div id="my-popover2" popover=manual>
-  <p>I am a manual popover with more information. Hit the close button or toggle to close me.<p>
-  <button class="close-btn" popovertarget="my-popover2" popovertargetaction="hide">
-    <span aria-hidden=”true”>❌</span>
-    <span class="sr-only">Close</span>
+<div id="mypopover"  popover="manual">
+  <h1>Popover content</h1>
+  <button popovertarget="mypopover" popovertargetaction="hide">
+    Hide popover
   </button>
 </div>
 
@@ -140,4 +139,10 @@
       dialog.close();
     });
   }
+
+  // Show popover
+document.getElementById('mypopover').showPopover();
+
+// Hide popover
+document.getElementById('mypopover').hidePopover();
 </script>

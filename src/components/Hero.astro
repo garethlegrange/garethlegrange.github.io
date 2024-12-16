@@ -34,10 +34,20 @@
   </h1>
 </section>
 
-<div
+<button popovertarget="my-popover2" class="trigger-btn">Open Popover</button>
+
+<div id="my-popover2" popover=manual>
+  <p>I am a manual popover with more information. Hit the close button or toggle to close me.<p>
+  <button class="close-btn" popovertarget="my-popover2" popovertargetaction="hide">
+    <span aria-hidden=”true”>❌</span>
+    <span class="sr-only">Close</span>
+  </button>
+</div>
+
+<!-- <div
   popover
   id="my-popover"
-  class="backdrop:bg-black/50 mx-auto p-4 rounded-lg top-1/2 -translate-y-1/2"
+  class="backdrop:bg-black/50 bg-white mx-auto p-4 rounded-lg top-1/2 -translate-y-1/2"
 >
   <div class="flex justify-end">
     <button type="button" popovertarget="my-popover" class="px-2 py-1">Close</button>
@@ -52,7 +62,7 @@
       Jubilee helping me fix a bug 🐛
     </figcaption>
   </figure>
-</div>
+</div> -->
 
 <script type="module">
   import {

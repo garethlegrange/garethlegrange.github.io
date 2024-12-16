@@ -1,11 +1,24 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import Hero from "@components/Hero.astro";
 
+import { getCollection } from "astro:content";
 const jobs = await getCollection("jobs");
+
+const sortedJobs = jobs.sort((a, b) => {
+  const endA = a.data.end ? new Date(a.data.end).getTime() : Infinity; // Ongoing jobs go last if end is null
+  const endB = b.data.end ? new Date(b.data.end).getTime() : Infinity;
+  return endB - endA;
+});
+
+const snippets = (await getCollection("snippets"))
+  .sort((a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 ---
 
 <Layout>
+  <Hero />
+
   <p class="text-pretty text-neutral-800 mb-6 text-lg">
     With <strong>over a decade of experience</strong>, I specialize in
     transforming complex ideas into sleek, high-performing websites and
@@ -18,61 +31,79 @@ const jobs = await getCollection("jobs");
   <div class="grid grid-cols-2 gap-8">
     <section id="snippets">
       <h2 class="text-xl font-semibold mb-3">Snippets</h2>
-      <!-- <p class="mb-2">
-        <em>Bite-sized insights, updates, and code samples</em> from my development
-        journey. Whether it’s a <strong>clever code trick</strong>, a <strong
-          >quick solution</strong
-        > to a tricky problem, or <strong>exciting news</strong> from the tech
-        world, you’ll find it all here.
-      </p>
-      <p>
-        <strong
-          >Perfect for when you’re short on time but eager to learn something
-          new.</strong
-        >
-      </p> -->
       <p class="mb-2">
         <em>Bite-sized insights, updates, and code samples</em> from my development
         journey.
       </p>
+
+      <ul class="space-y-3">
+        {
+          snippets.map((snippet: any) => (
+            <li class="bg-neutral-100 rounded-lg p-4">
+              <a class="text-blue-700" href={`/snippets/${snippet.id}`}>
+                <h5 class="font-semibold leading-0 mb-2">
+                  {snippet.data.title}
+                </h5>
+              </a>
+              <time class="text-xs font-mono">
+                <span class="sr-only">Published:</span>
+                {new Date(snippet.data.pubDate).toLocaleDateString("en-ZA", {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                })}
+              </time>
+              <p class="text-sm">{snippet.data.description}</p>
+              <a
+                class="items-center gap-2 text-sm text-blue-600 font-inter-variable"
+                href={`/snippets/${snippet.id}`}
+              >
+                Read more
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </section>
-    <ol
-      class="sticky top-4 p-4 rounded-md border border-neutral-200 bg-white hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition-all duration-200 text-sm space-y-3"
-    >
-      {
-        jobs.map((job: any) => (
-          <li>
-            <dl class="flex flex-auto flex-wrap gap-x-2">
-              <dt class="sr-only">Company</dt>
-              <dd class="w-full flex-none text-sm font-semibold">
-                {job.data.companyName}
-              </dd>
-              <dt class="sr-only">Role</dt>
-              <dd class="text-xs">{job.data.title}</dd>
-              <dt class="sr-only">Date</dt>
-              <dd class="ml-auto text-xs">
-                <time datetime={job.data.start}>
-                  {Intl.DateTimeFormat("en-ZM", {
-                    month: "short",
-                    year: "numeric",
-                  }).format(new Date(job.data.start))}
-                </time>
-                <span aria-hidden="true">-</span>
-                <time datetime={job.data.end}>
-                  {job.data.end ? (
-                    Intl.DateTimeFormat("en-ZM", {
+    <section>
+      <ol
+        class="sticky top-4 p-4 rounded-md border border-neutral-200 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition-all duration-200 text-sm space-y-3"
+      >
+        {
+          sortedJobs.map((job: any) => (
+            <li>
+              <dl class="flex flex-auto flex-wrap gap-x-2">
+                <dt class="sr-only">Company</dt>
+                <dd class="w-full flex-none text-sm font-semibold">
+                  {job.data.companyName}
+                </dd>
+                <dt class="sr-only">Role</dt>
+                <dd class="text-xs">{job.data.title}</dd>
+                <dt class="sr-only">Date</dt>
+                <dd class="ml-auto text-xs">
+                  <time datetime={job.data.start}>
+                    {Intl.DateTimeFormat("en-ZM", {
                       month: "short",
                       year: "numeric",
-                    }).format(new Date(job.data.end))
-                  ) : (
-                    <strong class="font-semibold">Present</strong>
-                  )}
-                </time>
-              </dd>
-            </dl>
-          </li>
-        ))
-      }
-    </ol>
+                    }).format(new Date(job.data.start))}
+                  </time>
+                  <span aria-hidden="true">-</span>
+                  <time datetime={job.data.end}>
+                    {job.data.end ? (
+                      Intl.DateTimeFormat("en-ZM", {
+                        month: "short",
+                        year: "numeric",
+                      }).format(new Date(job.data.end))
+                    ) : (
+                      <strong class="font-semibold">Present</strong>
+                    )}
+                  </time>
+                </dd>
+              </dl>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
   </div>
 </Layout>

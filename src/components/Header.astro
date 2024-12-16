@@ -1,20 +1,18 @@
 ---
-import Logoo from "@components/Logo.astro";
+import Logo from "@components/Logo.astro";
 
 const links = [
-  { name: "Projects", link: "/projects" },
+  { name: "About", link: "/about" },
+  // { name: "Projects", link: "/projects" },
   { name: "Snippets", link: "/snippets" },
 ];
 ---
 
 <header>
   <div class="container mx-auto max-w-4xl flex items-center gap-4 py-4 px-6">
-    <Logoo />
+    <Logo />
     <nav>
       <ul class="flex gap-3 text-sm font-mono">
-        <li>
-          <button popovertarget="my-popover">About</button>
-        </li>
         {
           links.map((link) => (
             <li>
@@ -27,47 +25,8 @@ const links = [
     <a
       role="button"
       href="mailto:garethlegrange+work@gmail.com"
-      class="text-sm font-mono font-semibold uppercase px-4 py-2 rounded-md border border-neutral-900 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition-all duration-200 cursor-pointer bg-white"
+      class="text-sm font-mono font-semibold uppercase px-4 py-2 rounded-md border border-neutral-900 shadow-[4px_4px_0px_0px_rgba(0,0,0)] hover:shadow-none transition-all duration-200 cursor-pointer bg-white"
       >Contact me</a
     >
   </div>
 </header>
-
-<div id="my-popover" popover>
-  <p><p>I am a popover with more information. Hit <kbd>esc</kbd> or click away to close me.<p></p>
-</div>
-
-<style>
-[popover] {
-  background: black;
-  color: white;
-  font-weight: 400;
-  padding: 1rem 1.5rem;
-  border-radius: 1rem;
-  max-width: 20ch;
-  line-height: 1.4;
-  top: 2rem;
-  margin: 0 auto;
-}
-
-
-/* Animating the popover in */
-
-/*   IS-OPEN STATE   */
-[popover]:popover-open {
-  translate: 0 0;
-}
-
-/*   EXIT STATE   */
-[popover] {
-  transition: translate 0.7s ease-out, display 0.7s ease-out allow-discrete, overlay 0.7s ease-out allow-discrete;
-  translate: 0 -22rem;
-}
-
-/*   0. BEFORE-OPEN STATE   */
-@starting-style {
-  [popover]:popover-open {
-    translate: 0 -22rem;
-  }
-}
-</style>

@@ -8,8 +8,8 @@ import "@fontsource-variable/caveat";
 import "@styles/tailwind.css";
 import Background from "@components/Background.astro";
 import Header from "@components/Header.astro";
-import Hero from "@components/Hero.astro";
 import Footer from "@components/Footer.astro";
+import Freelance from "@/components/Freelance.astro";
 ---
 
 <!doctype html>
@@ -21,44 +21,18 @@ import Footer from "@components/Footer.astro";
     <meta name="generator" content={Astro.generator} />
     <title>Astro Basics</title>
   </head>
-  <body class="font-sans antialiased">
+  <body class="font-sans antialiased relative">
     <Background />
     <div class="flex flex-col min-h-dvh">
       <Header />
-      <Hero />
       <main class="grow container mx-auto max-w-4xl py-4 px-6">
         <slot />
       </main>
+      <Freelance />
       <Footer />
     </div>
   </body>
 </html>
-
-<script type="module">
-  import {
-    annotate,
-    annotationGroup,
-  } from "https://unpkg.com/rough-notation?module";
-
-  const a1 = annotate(document.querySelector("#underline"), {
-    type: "underline",
-    color: "#48bb78",
-  });
-
-  const a2 = annotate(document.querySelector("#box"), {
-    type: "box",
-    color: "#3b82f6",
-  });
-
-  const a3 = annotate(document.querySelector("#highlight"), {
-    type: "highlight",
-    color: "#f5d35b",
-  });
-
-  const ag = annotationGroup([a1, a2, a3]);
-
-  ag.show();
-</script>
 
 <style>
   @view-transition {

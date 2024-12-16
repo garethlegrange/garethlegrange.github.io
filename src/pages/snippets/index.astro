@@ -1,1 +1,65 @@
-<h1>This is the snippet page.</h1>
+---
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const snippets = (await getCollection("snippets")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Layout>
+  <p
+    class="font-serif text-[clamp(1.5rem,2.2vw,4em)] leading-[clamp(2.5rem,3vw,6em)] text-pretty font-[400] mb-6"
+  >
+    <em
+      ><span class="myElement">Bite-sized</span> insights, updates, and code samples</em
+    > from my development journey. Whether it’s a <strong
+      >clever code trick</strong
+    >, a <strong>quick solution</strong> to a tricky problem, or <strong
+      class="myElement">exciting news</strong
+    > from the tech world, you’ll find it all here.
+  </p>
+
+  <ul class="text-sm space-y-2">
+    {
+      snippets.map((snippets: any) => (
+        <li class="p-3 rounded-lg border border-neutral-200 bg-white flex space-x-4">
+          {snippets.data.heroImage && <img src={snippets.data.heroImage} class="w-24" />}
+
+          <div>
+            <header class="flex flex-col gap-1 justify-between mb-3">
+              <a class="text-blue-700" href={`/snippets/${snippets.id}`}>
+                <h6 class="font-bold">{snippets.data.title}</h6>
+              </a>
+              <time class="text-xs text-neutral-600">
+                Published:
+                {new Date(snippets.data.pubDate).toLocaleDateString("en-ZA", {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                })}
+              </time>
+            </header>
+
+            <p>{snippets.data.description}</p>
+
+            <a
+              class="flex items-center gap-2 text-sm mt-3 ml-auto text-blue-600"
+              href={`/snippets/${snippets.id}`}
+            >
+              Read more
+            </a>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>
+
+<script type="module">
+  import { annotate } from "https://unpkg.com/rough-notation?module";
+
+  const e = document.querySelector(".myElement");
+  const annotation = annotate(e, { type: "highlight", color: "yellow" });
+  annotation.show();
+</script>

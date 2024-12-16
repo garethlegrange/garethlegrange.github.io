@@ -1,23 +1,121 @@
-<section class="container mx-auto max-w-4xl py-4 px-6">
-  <h1 class="font-serif text-[clamp(1.5rem,3.2vw,4em)] leading-[clamp(2.5rem,5vw,6em)] text-pretty font-[400]">
-    <img src="wave.svg" class="size-16 float-start mr-2" id="wave-image" alt="Wave image" /> Hello, I'm <span id="underline" class="whitespace-nowrap">Gareth</span> - A <strong class="font-[800]"><span id="box" class="whitespace-nowrap relative">senior <sup class="font-cursive text-lg absolute -top-4 right-2 z-10">(+10 years)</sup></span> frontend developer</strong> passionate about
-    crafting <em class="font-[500] whitespace-nowrap" id="highlight">user-centric</em> websites and applications.
-  </h1>  
+---
+---
+
+<section class="container mx-auto max-w-4xl my-4">
+  <h1
+    class="font-serif text-[clamp(1.5rem,3.2vw,4em)] leading-[clamp(2.5rem,5vw,6em)] text-pretty font-[400]"
+  >
+    <img
+      src="wave.svg"
+      class="size-16 float-start mr-2"
+      id="wave-image"
+      alt="Wave image"
+    /> Hello, I'm <span id="underline" class="whitespace-nowrap relative"
+      >Gareth<sup
+        id="showButton"
+        class="absolute -top-4.5 -right-3 cursor-pointer"
+        ><img
+          src="eyes.svg"
+          class="size-8"
+          id="eyes-image"
+          alt="Eyes image"
+        /></sup
+      ></span
+    > - A <strong class="font-[800]"
+      ><span id="box" class="whitespace-nowrap relative"
+        >senior <sup class="font-cursive text-lg absolute -top-2 right-0 z-10"
+          >(+10 years)</sup
+        ></span
+      > frontend developer</strong
+    > passionate about crafting <em
+      class="font-[500] whitespace-nowrap"
+      id="highlight">user-centric</em
+    > websites and applications.
+  </h1>
 </section>
 
+<dialog class="backdrop:bg-black/50 p-4 rounded-lg mx-auto top-1/2 -translate-y-1/2">
+  <button autofocus id="closeButton">Close</button>
+  <figure>
+    <img src="me-and-jubilee.jpeg" alt="Trulli" style="width:100%" />
+    <figcaption>Jubilee helping me fix a bug 🐛</figcaption>
+  </figure>
+</dialog>
+
+<script type="module">
+  import {
+    annotate,
+    annotationGroup,
+  } from "https://unpkg.com/rough-notation?module";
+
+  const a1 = annotate(document.querySelector("#underline"), {
+    type: "underline",
+    color: "#48bb78",
+  });
+
+  const a2 = annotate(document.querySelector("#box"), {
+    type: "box",
+    color: "#3b82f6",
+  });
+
+  const a3 = annotate(document.querySelector("#highlight"), {
+    type: "highlight",
+    color: "#f5d35b",
+  });
+
+  const ag = annotationGroup([a1, a2, a3]);
+
+  ag.show();
+</script>
+
 <script>
-  const image = document.getElementById('wave-image') as HTMLImageElement | null;
+  const image = document.getElementById(
+    "wave-image"
+  ) as HTMLImageElement | null;
+
+  const image2 = document.getElementById(
+    "eyes-image"
+  ) as HTMLImageElement | null;
 
   if (image) {
-    const originalSrc = 'wave.svg';
-    const hoverSrc = 'wave.webp';
+    const originalSrc = "wave.svg";
+    const hoverSrc = "wave.webp";
 
-    image.addEventListener('mouseenter', () => {
+    image.addEventListener("mouseenter", () => {
       image.src = hoverSrc;
     });
 
-    image.addEventListener('mouseleave', () => {
+    image.addEventListener("mouseleave", () => {
       image.src = originalSrc;
+    });
+  }
+
+  if (image2) {
+    const originalSrc = "eyes.svg";
+    const hoverSrc = "eyes.webp";
+
+    image2.addEventListener("mouseenter", () => {
+      image2.src = hoverSrc;
+    });
+
+    image2.addEventListener("mouseleave", () => {
+      image2.src = originalSrc;
+    });
+  }
+
+  const dialog = document.querySelector("dialog");
+  const showButton = document.querySelector("#showButton");
+  const closeButton = document.querySelector("#closeButton");
+
+  if (showButton && dialog) {
+    showButton.addEventListener("click", () => {
+      dialog.showModal();
+    });
+  }
+
+  if (closeButton && dialog) {
+    closeButton.addEventListener("click", () => {
+      dialog.close();
     });
   }
 </script>

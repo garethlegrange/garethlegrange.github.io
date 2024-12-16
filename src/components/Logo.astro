@@ -3,23 +3,7 @@ import LogoImg from "@images/logo.svg";
 ---
 
 <div class="mr-auto">
-  <a href="/" title="Gareth le Grange" class="anchor">
+  <a href="/" title="Gareth le Grange">
     <LogoImg class="size-20" />
   </a>
-  <div class="positioned-element">
-    <p class="font-cursive text-xl font-semibold">That&apos;s me</p>
-  </div>
 </div>
-
-<style>
-  .anchor {
-    anchor-name: --my-positioned-element;
-  }
-
-  .positioned-element {
-    @apply absolute;
-    positioned-anchor: --my-positioned-element;
-    /* position-area: inline-end; */
-    bottom: anchor(bottom);
-  }
-</style>

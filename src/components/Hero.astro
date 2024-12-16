@@ -1,46 +1,45 @@
 ---
+
 ---
 
 <section class="container mx-auto max-w-4xl my-4">
   <h1
-    class="font-serif text-[clamp(1.5rem,3.2vw,4em)] leading-[clamp(2.5rem,5vw,6em)] text-pretty font-[400]"
+    class="font-serif text-[clamp(1.6rem,3.2vw,3em)] leading-[clamp(2.4rem,5vw,5em)] text-pretty font-[400]"
   >
     <img
       src="wave.svg"
-      class="size-16 float-start mr-2"
+      class="size-9 lg:size-16 float-start mr-2"
       id="wave-image"
       alt="Wave image"
     /> Hello, I'm <span id="underline" class="whitespace-nowrap relative"
-      >Gareth<sup
-        id="showButton"
-        class="absolute -top-4.5 -right-3 cursor-pointer"
+      >Gareth
+      <button
+        class="absolute -top-4.5 -right-3 cursor-pointer float-start"
+        popovertarget="my-popover"
         ><img
           src="eyes.svg"
-          class="size-8"
+          class="inline-block size-6 lg:size-8"
           id="eyes-image"
           alt="Eyes image"
-        /></sup
-      ></span
-    > - A <strong class="font-[800]"
-      ><span id="box" class="whitespace-nowrap relative"
-        >senior <sup class="font-cursive text-lg absolute -top-2 right-0 z-10"
-          >(+10 years)</sup
-        ></span
-      > frontend developer</strong
-    > passionate about crafting <em
+          id="showButton"
+        /></button
+      >
+    </span> - A <strong class="font-[800]"
+      ><span id="box" class="whitespace-nowrap relative">senior</span> frontend developer</strong
+    >
+    <sup class="font-cursive">(+10 years)</sup> passionate about crafting <em
       class="font-[500] whitespace-nowrap"
       id="highlight">user-centric</em
     > websites and applications.
   </h1>
 </section>
 
-<dialog class="backdrop:bg-black/50 p-4 rounded-lg mx-auto top-1/2 -translate-y-1/2">
-  <button autofocus id="closeButton">Close</button>
+<div popover id="my-popover">
   <figure>
     <img src="me-and-jubilee.jpeg" alt="Trulli" style="width:100%" />
     <figcaption>Jubilee helping me fix a bug 🐛</figcaption>
   </figure>
-</dialog>
+</div>
 
 <script type="module">
   import {

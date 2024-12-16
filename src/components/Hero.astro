@@ -34,14 +34,12 @@
   </h1>
 </section>
 
-<button popovertarget="mypopover">Toggle the popover</button>
+<dialog>
+  <button autofocus>Close</button>
+  <p>This modal dialog has a groovy backdrop!</p>
+</dialog>
 
-<div id="mypopover"  popover="manual">
-  <h1>Popover content</h1>
-  <button popovertarget="mypopover" popovertargetaction="hide">
-    Hide popover
-  </button>
-</div>
+<button>Show the dialog</button>
 
 <!-- <div
   popover
@@ -125,24 +123,16 @@
   }
 
   const dialog = document.querySelector("dialog");
-  const showButton = document.querySelector("#showButton");
-  const closeButton = document.querySelector("#closeButton");
+const showButton = document.querySelector("dialog + button");
+const closeButton = document.querySelector("dialog button");
 
-  if (showButton && dialog) {
-    showButton.addEventListener("click", () => {
-      dialog.showModal();
-    });
-  }
+// "Show the dialog" button opens the dialog modally
+showButton.addEventListener("click", () => {
+  dialog.showModal();
+});
 
-  if (closeButton && dialog) {
-    closeButton.addEventListener("click", () => {
-      dialog.close();
-    });
-  }
-
-  // Show popover
-document.getElementById('mypopover').showPopover();
-
-// Hide popover
-document.getElementById('mypopover').hidePopover();
+// "Close" button closes the dialog
+closeButton.addEventListener("click", () => {
+  dialog.close();
+});
 </script>

@@ -14,7 +14,7 @@
     /> Hello, I'm <span id="underline" class="whitespace-nowrap relative"
       >Gareth
       <button
-        class="absolute -top-4.5 -right-3 cursor-pointer float-start"
+        class="absolute -top-4.5 lg:-top-10 -right-3 cursor-pointer float-start"
         popovertarget="my-popover"
         ><img
           src="eyes.svg"
@@ -34,10 +34,23 @@
   </h1>
 </section>
 
-<div popover id="my-popover">
+<div
+  popover
+  id="my-popover"
+  class="backdrop:bg-black/50 mx-auto p-4 rounded-lg top-1/2 -translate-y-1/2"
+>
+  <div class="flex justify-end">
+    <button type="button" popovertarget="my-popover" class="px-2 py-1">Close</button>
+  </div>
   <figure>
-    <img src="me-and-jubilee.jpeg" alt="Trulli" style="width:100%" />
-    <figcaption>Jubilee helping me fix a bug 🐛</figcaption>
+    <img
+      src="me-and-jubilee.jpeg"
+      alt="Me and Jubilee, bug fixing."
+      style="width:100%"
+    />
+    <figcaption class="text-sm mt-1 text-center">
+      Jubilee helping me fix a bug 🐛
+    </figcaption>
   </figure>
 </div>
 

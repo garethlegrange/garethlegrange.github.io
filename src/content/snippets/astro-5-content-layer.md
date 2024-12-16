@@ -1,8 +1,7 @@
 ---
 title: "Astro 5 Content Layer: Content Simplified 📝 "
 description: "Astro 5’s Content Layer makes managing markdown and content-centric workflows seamless"
-pubDate: "09 Dec 2024"
-heroImage: "/blog-placeholder-2.jpg"
+pubDate: "11 Dec 2024"
 ---
 
 ## Astro 5 Content Layer: Content Simplified 📝

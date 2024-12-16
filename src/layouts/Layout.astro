@@ -1,13 +1,15 @@
 ---
-import "@fontsource-variable/source-serif-4";
-import "@fontsource-variable/inter";
-import "@styles/app.css";
-import { SEO } from "astro-seo";
-import Background from "@/components/Background.astro";
-import Header from "@/components/Header.astro";
-import Hero from "@/components/Hero.astro";
-import Footer from "@/components/Footer.astro";
-import FreeleanceAvailability from "@/components/FreelanceAvailability.astro";
+// Supports weights 400-800
+import "@fontsource-variable/eb-garamond";
+import "@fontsource/geist-sans";
+import "@fontsource/geist-mono";
+// Supports weights 400-700
+import "@fontsource-variable/caveat";
+import "@styles/tailwind.css";
+import Background from "@components/Background.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Freelance from "@/components/Freelance.astro";
 ---
 
 <!doctype html>
@@ -17,42 +19,23 @@ import FreeleanceAvailability from "@/components/FreelanceAvailability.astro";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <SEO
-      title="Gareth le Grange - Senior Frontend Developer"
-      description="Experienced Senior Frontend Developer specializing in HTML, CSS, React, TypeScript, JavaScript, and responsive web design."
-      openGraph={{
-        basic: {
-          title: "Gareth le Grange - Senior Frontend Developer",
-          type: "profile",
-          image: "https://avatars.githubusercontent.com/u/12164551?v=4",
-        },
-      }}
-      extend={{
-        link: [{ rel: "icon", href: "/favicon.ico" }],
-        meta: [
-          { name: "author", content: "Gareth le Grange" },
-          {
-            name: "viewport",
-            content: "width=device-width, initial-scale=1.0",
-          },
-        ],
-      }}
-    />
+    <title>Astro Basics</title>
   </head>
-  <body class="font-inter-variable antialiased text-neutral-900">
+  <body class="font-sans antialiased relative">
     <Background />
-    <div
-      class="flex flex-col space-y-8 min-h-dvh container mx-auto max-w-4xl px-6"
-    >
+    <div class="flex flex-col min-h-dvh">
       <Header />
-      <Hero />
-      <main class="grow">
+      <main class="grow container mx-auto max-w-4xl py-4 px-6">
         <slot />
-        <FreeleanceAvailability availability="limited" />
       </main>
+      <Freelance />
       <Footer />
     </div>
   </body>
 </html>
 
-<script type="module" src="https://unpkg.com/rough-notation/lib/rough-notation.iife.js" />
+<style>
+  @view-transition {
+    navigation: auto;
+  }
+</style>

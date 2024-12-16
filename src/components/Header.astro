@@ -1,23 +1,32 @@
 ---
-import Logo from "@components/Logo.astro"
-import ThatsMe from "@images/thats_me.svg";
-import Nav from "@components/Nav.astro";
-import Button from "@components/Button.astro";
+import Logo from "@components/Logo.astro";
+
+const links = [
+  { name: "About", link: "/about" },
+  // { name: "Projects", link: "/projects" },
+  { name: "Snippets", link: "/snippets" },
+];
 ---
 
-<header class="py-4">
-  <div class="container mx-auto flex space-x-6 items-center">
-    <div class="relative size-12 mr-auto">
-      <a href="/">
-        <Logo />
-      </a>
-      <ThatsMe
-        aria-hidden="true"
-        class="w-24 h-8 absolute top-13 left-8 transition-all duration-300"
-        id="thats-me"
-      />
-    </div>
-    <Nav />
-    <Button>Contact me</Button>
+<header>
+  <div class="container mx-auto max-w-4xl flex items-center gap-4 py-4 px-6">
+    <Logo />
+    <nav>
+      <ul class="flex gap-3 text-sm font-mono">
+        {
+          links.map((link) => (
+            <li>
+              <a href={link.link}>{link.name}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <a
+      role="button"
+      href="mailto:garethlegrange+work@gmail.com"
+      class="text-sm font-mono font-semibold uppercase px-4 py-2 rounded-md border border-neutral-900 shadow-[4px_4px_0px_0px_rgba(0,0,0)] hover:shadow-none transition-all duration-200 cursor-pointer bg-white"
+      >Contact me</a
+    >
   </div>
 </header>

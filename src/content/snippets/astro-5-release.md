@@ -1,8 +1,7 @@
 ---
 title: "Astro 5 Release: Static Sites Evolved 🌟  "
 description: "Astro 5 is here, and it’s a game-changer for the static site generation landscape."
-pubDate: "09 Dec 2024"
-heroImage: "/blog-placeholder-2.jpg"
+pubDate: "05 Dec 2024"
 ---
 
 ## Astro 5 Release: Static Sites Evolved 🌟

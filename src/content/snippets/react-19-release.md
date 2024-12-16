@@ -1,8 +1,7 @@
 ---
 title: "React 19 Release 🚀"
 description: "React 19 has officially landed, introducing exciting updates to enhance the developer experience and streamline performance."
-pubDate: "09 Dec 2024"
-heroImage: "/blog-placeholder-3.jpg"
+pubDate: "13 Dec 2024"
 ---
 
 ## React 19 Release 🚀

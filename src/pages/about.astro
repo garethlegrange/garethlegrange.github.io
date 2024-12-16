@@ -1,18 +1,23 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import { Image } from 'astro:assets';
-import Img from '@images/my-family.jpg';
+import { Image } from "astro:assets";
+import Img from "@images/my-family.jpg";
 ---
 
 <Layout>
-  <p class="font-serif text-[clamp(1.25rem,2vw,3em)] leading-[clamp(1.8rem,3.2vw,5em)] text-pretty font-[400]">
-    With over a <span id="e1">decade of experience</span>, I specialize in transforming complex
-    ideas into <strong
+  <p
+    class="font-serif text-[clamp(1.25rem,2vw,3em)] leading-[clamp(1.8rem,3.2vw,5em)] text-pretty font-[400]"
+  >
+    With over a <span id="e1">decade of experience</span>, I specialize in
+    transforming complex ideas into <strong
       >sleek, high-performing websites and applications</strong
-    >. Currently, I am a <strong><span id="e2">Senior</span> Front-End Developer</strong> at <strong id="e3"
-      >Mercedes-Benz</strong
-    >, where I design and develop <em>innovative</em>, <em>user-friendly</em> applications,
-    working remotely from the <em>beautiful Muizenberg, South Africa</em>.
+    >. Currently, I am a <strong
+      ><span id="e2">Senior</span> Front-End Developer</strong
+    > at <strong id="e3">Mercedes-Benz</strong>, where I design and develop <em
+      >innovative</em
+    >, <em>user-friendly</em> applications, working remotely from the <em
+      >beautiful Muizenberg, South Africa</em
+    >.
   </p>
 
   <article class="prose prose-neutral prose-a:no-underline mt-4 max-w-none">
@@ -34,8 +39,12 @@ import Img from '@images/my-family.jpg';
 
     <h3>My Family</h3>
 
-    <Image src={Img} alt="My family" loading="lazy"
-    class="rotate-2 lg:rotate-3 rounded-lg bg-zinc-100 mx-auto sm:float-right w-full sm:ml-4 border border-neutral-900 shadow-[4px_4px_0px_0px_rgba(0,0,0)] p-3" />
+    <Image
+      src={Img}
+      alt="My family"
+      loading="lazy"
+      class="rotate-3 rounded-lg bg-zinc-100 border border-neutral-900 shadow-[4px_4px_0px_0px_rgba(0,0,0)] p-3 md:float-end md:ml-4 mx-auto max-w-[400px]"
+    />
 
     <p>
       Outside of work, my family is my main source of inspiration and joy. I am

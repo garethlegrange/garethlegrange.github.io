@@ -15,7 +15,7 @@
       >Gareth
       <button
         class="absolute -top-4.5 lg:-top-10 -right-3 cursor-pointer float-start"
-        popovertarget="my-popover"
+        id="showButton"
         ><img
           src="eyes.svg"
           class="inline-block size-6 lg:size-8"
@@ -34,12 +34,21 @@
   </h1>
 </section>
 
-<dialog>
-  <button autofocus>Close</button>
-  <p>This modal dialog has a groovy backdrop!</p>
+<dialog
+  class="backdrop:bg-black/50 bg-white mx-auto p-4 rounded-lg top-1/2 -translate-y-1/2 text-right"
+>
+  <button id="closeButton" autofocus>Close</button>
+  <figure>
+    <img
+      src="me-and-jubilee.jpeg"
+      alt="Me and Jubilee, bug fixing."
+      style="width:100%"
+    />
+    <figcaption class="text-sm mt-1 text-center">
+      Jubilee helping me fix a bug 🐛
+    </figcaption>
+  </figure>
 </dialog>
-
-<button>Show the dialog</button>
 
 <!-- <div
   popover
@@ -123,16 +132,20 @@
   }
 
   const dialog = document.querySelector("dialog");
-const showButton = document.querySelector("dialog + button");
-const closeButton = document.querySelector("dialog button");
+  const showButton = document.querySelector("#showButton");
+  const closeButton = document.querySelector("#closeButton");
 
-// "Show the dialog" button opens the dialog modally
-showButton.addEventListener("click", () => {
-  dialog.showModal();
-});
+  if (dialog) {
+    if (showButton) {
+      showButton.addEventListener("click", () => {
+        dialog.showModal();
+      });
+    }
 
-// "Close" button closes the dialog
-closeButton.addEventListener("click", () => {
-  dialog.close();
-});
+    if (closeButton) {
+      closeButton.addEventListener("click", () => {
+        dialog.close();
+      });
+    }
+  }
 </script>

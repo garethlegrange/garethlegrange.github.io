@@ -10,6 +10,7 @@ import Background from "@components/Background.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Freelance from "@/components/Freelance.astro";
+import { SEO } from "astro-seo";
 ---
 
 <!doctype html>
@@ -19,7 +20,21 @@ import Freelance from "@/components/Freelance.astro";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <SEO
+      title="Gareth le Grange - Senior Frontend Developer"
+      description="Experienced frontend developer with 10+ years of expertise in crafting user-centric, high-performing websites and applications. Currently at Mercedes-Benz, innovating user-friendly features from Muizenberg, South Africa."
+      openGraph={{
+        basic: {
+          title: "Gareth le Grange - Senior Frontend Developer",
+          type: "profile",
+          image:
+            "https://avatars.githubusercontent.com/u/12164551?v=4",
+        },
+      }}
+      extend={{
+        link: [{ rel: "icon", href: "/favicon.ico" }],
+      }}
+    />
   </head>
   <body class="font-sans antialiased relative">
     <Background />
